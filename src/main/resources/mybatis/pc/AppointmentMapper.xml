@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.pc.dao.AppointmentDao">
+
+	<select id="get" resultType="com.bootdo.pc.domain.AppointmentDO">
+		select `id`,`baby_name`,`baby_age`,`tel`,`wx_num`,`from_channel`,`appoint_status`,`createTime`,`createBy`,`updateTime`,`updateBy` from pc_appointment where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.pc.domain.AppointmentDO">
+		select `id`,`baby_name`,`baby_age`,`tel`,`wx_num`,`from_channel`,appoint_status,`createTime`,`createBy`,`updateTime`,`updateBy` from pc_appointment
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="babyName != null and babyName != ''"> and baby_name = #{babyName} </if>
+		  		  <if test="babyAge != null and babyAge != ''"> and baby_age = #{babyAge} </if>
+		  		  <if test="tel != null and tel != ''"> and tel like concat('%',#{tel},'%') </if>
+			      <if test="wxNum != null and wxNum != ''"> and wx_num = #{wxNum} </if>
+		  		  <if test="fromChannel != null and fromChannel != ''"> and from_channel = #{fromChannel} </if>
+			      <if test="appointStatus != null and appointStatus != ''"> and appoint_status = #{appointStatus} </if>
+		  		  <if test="createtime != null and createtime != ''"> and createTime = #{createtime} </if>
+		  		  <if test="createby != null and createby != ''"> and createBy = #{createby} </if>
+		  		  <if test="updatetime != null and updatetime != ''"> and updateTime = #{updatetime} </if>
+		  		  <if test="updateby != null and updateby != ''"> and updateBy = #{updateby} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from pc_appointment
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="babyName != null and babyName != ''"> and baby_name = #{babyName} </if>
+		  		  <if test="babyAge != null and babyAge != ''"> and baby_age = #{babyAge} </if>
+		  		  <if test="tel != null and tel != ''"> and tel = #{tel} </if>
+		  		  <if test="wxNum != null and wxNum != ''"> and wx_num = #{wxNum} </if>
+		  		  <if test="fromChannel != null and fromChannel != ''"> and from_channel = #{fromChannel} </if>
+			      <if test="appointStatus != null and appointStatus != ''"> and appoint_status = #{appointStatus} </if>
+		  		  <if test="createtime != null and createtime != ''"> and createTime = #{createtime} </if>
+		  		  <if test="createby != null and createby != ''"> and createBy = #{createby} </if>
+		  		  <if test="updatetime != null and updatetime != ''"> and updateTime = #{updatetime} </if>
+		  		  <if test="updateby != null and updateby != ''"> and updateBy = #{updateby} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.pc.domain.AppointmentDO" useGeneratedKeys="true" keyProperty="id">
+		insert into pc_appointment
+		(
+			`baby_name`, 
+			`baby_age`, 
+			`tel`, 
+			`wx_num`, 
+			`from_channel`,
+			`appoint_status`,
+			`createTime`, 
+			`createBy`, 
+			`updateTime`, 
+			`updateBy`
+		)
+		values
+		(
+			#{babyName}, 
+			#{babyAge}, 
+			#{tel}, 
+			#{wxNum}, 
+			#{fromChannel},
+			#{appointStatus},
+			#{createtime},
+			#{createby}, 
+			#{updatetime}, 
+			#{updateby}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.pc.domain.AppointmentDO">
+		update pc_appointment 
+		<set>
+			<if test="babyName != null">`baby_name` = #{babyName}, </if>
+			<if test="babyAge != null">`baby_age` = #{babyAge}, </if>
+			<if test="tel != null">`tel` = #{tel}, </if>
+			<if test="wxNum != null">`wx_num` = #{wxNum}, </if>
+			<if test="fromChannel != null">`from_channel` = #{fromChannel}, </if>
+			<if test="appointStatus != null">`appoint_status` = #{appointStatus}, </if>
+			<if test="createtime != null">`createTime` = #{createtime}, </if>
+			<if test="createby != null">`createBy` = #{createby}, </if>
+			<if test="updatetime != null">`updateTime` = #{updatetime}, </if>
+			<if test="updateby != null">`updateBy` = #{updateby}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from pc_appointment where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from pc_appointment where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--↓↓↓↓↓↓↓↓↓禁用缓存↓↓↓↓↓↓↓↓↓↓↓↓-->
+    <title th:text="${page.title}">关于玫苓</title>
+    <meta name="keywords" th:attr="content=${page.seoKeywords}" />
+    <meta name="description" th:attr="content=${page.seoDescription}" />
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <!--↑↑↑↑↑↑↑↑↑↑禁用缓存↑↑↑↑↑↑-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/wap/reseet.css">
+    <link rel="stylesheet" type="text/css" href="/css/wap/phone_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/wap/flexslider.css">
+    <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
+</head>
+
+<body>
+
+<header class="newspage_top"  th:style="'background-image:url(' +${page.pageGbPic} + ');'">
+    <div class="top_nav_div">
+        <div class="top_nav_logo">
+            <img src="/images/logo.png" alt="Logo">
+        </div>
+        <div class="p_mul" id="p_mul">
+            <!-- <img src="/images/phone_navIcon.png" alt="">-->
+        </div>
+    </div>
+    <nav id="top_nac_ul"  class="top_nac" th:include="include :: wap_header"></nav>
+    <div class="top_title">
+        <h1 th:text="${page.title}">核心优势</h1>
+        <p class="cross_bar">
+            <span class="left"></span>
+            <span class="text"  th:text="${page.pcSubtitle}">Advantage</span>
+            <span class="right"></span>
+        </p>
+    </div>
+</header>
+    <main class="article_details">
+        <!--标题区域-->
+        <div class="article_title">
+            <!--标题-->
+            <h1 th:utext="${article.gwTitle}" style="color: #fdd000">
+                第十四届台湾梅苓杯木琴大赛圆满圆满
+            </h1>
+            <!--副标题-->
+            <p class="subtitle" th:utext="${article.gwSubtitle}">
+                第十四届台湾梅苓杯木琴大赛
+            </p>
+        </div>
+        <!--时间区域-->
+        <div class="article_other">
+            <span class="bianji">
+					编辑：
+					<span>
+						Kevin
+					</span>
+            </span>
+            &nbsp;|&nbsp;
+            <span class="time">
+					发布：
+					<span th:text="${#dates.format(article.createtime, 'yyyy年MM月dd日 ')}">
+					    yyyy年MM月dd日
+					</span>
+            </span>
+            &nbsp;|&nbsp;
+            <span class="yuedu">
+					阅读：
+					<span th:text="${article.gwCount}">
+						867
+					</span>
+            </span>
+        </div>
+        <!--简介区域-->
+        <div class="article_introduce">
+            <div class="into_icon1">
+                <img src="/images/investment_icon_talk.png" alt="">
+            </div>
+            <div >
+                <p th:text="${article.gwMem}"></p>
+            </div>
+            <div class="into_icon2">
+                <img src="/images/investment_icon_talk.png" alt="">
+            </div>
+        </div>
+        <!--正文区域-->
+        <div class="article_main" th:utext="${article.gwContext}">
+
+        </div>
+        <div class="article_end">
+            ————全文完————
+        </div>
+        <div class="tuijian">
+            <div class="tuijian_title">
+                <div class="icon">
+                    <img src="/images/book_orange.png"   alt="">
+                </div>
+                <h2>推荐阅读 <span> Extended Reading</span></h2>
+            </div>
+            <div class="tuijianlist">
+                <ul style="list-style-type: disc;">
+                    <li th:each="news:${newsList1}">
+                        &bull;&nbsp;<a th:href="'/wap/details?id='+${news.id}" th:utext="${news.gwTitle}">11111111111111111111111111</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+<footer th:include="include :: wap_footer"></footer>
+    <script>
+        $("#p_mul").click(function() {
+            var tnl = $("#top_nac_ul")
+            if (tnl.is(":hidden")) {
+                $("#p_mul").addClass("on");
+                $("#top_nac_ul").slideDown();
+            } else {
+                $("#p_mul").removeClass("on");
+                $("#top_nac_ul").slideUp();
+            }
+        })
+        $("#click_yy").click(function() {
+            $("#sign_from2").slideDown();
+            $("#sign_from").slideUp();
+
+        })
+        $("#click_tj").click(function() {
+            $("#sign_from2").slideUp();
+            $("#sign_from").slideDown();
+        })
+    </script>
+</body>
+</html>

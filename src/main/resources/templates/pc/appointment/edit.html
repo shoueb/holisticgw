@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${appointment.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-2 control-label">宝宝名字：</label>
+								<div class="col-sm-4">
+									<input id="babyName" name="babyName" th:value="${appointment.babyName}" readonly="readonly" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">宝贝年龄：</label>
+								<div class="col-sm-4">
+									<input id="babyAge" name="babyAge" th:value="${appointment.babyAge}" readonly="readonly" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">联系手机：</label>
+								<div class="col-sm-4">
+									<input id="tel" name="tel" th:value="${appointment.tel}" readonly="readonly" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">微信号：</label>
+								<div class="col-sm-4">
+									<input id="wxNum" name="wxNum" th:value="${appointment.wxNum}" readonly="readonly" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">渠道：</label>
+								<div class="col-sm-4">
+									<input id="fromChannel" name="fromChannel" readonly="readonly" th:value="${appointment.fromChannel}" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">提交时间：</label>
+								<div class="col-sm-4">
+									<input id="createtime" name="createtime" th:value="${#dates.format(appointment.createtime,'yyyy-MM-dd')}"   readonly="readonly" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">状态：</label>
+								<div class="col-sm-4">
+									<select name="appointStatus" id="appointStatus" class="form-control" th:value="${appointment.appointStatus}">
+										<option value="0">未联系</option>
+										<option value="1">意向客户</option>
+										<option value="2">确定客户</option>
+										<option value="3">犹豫客户</option>
+										<option value="4">未知</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::#footer"></div>
+	<script type="text/javascript" src="/js/appjs/pc/appointment/edit.js">
+	</script>
+</body>
+</html>

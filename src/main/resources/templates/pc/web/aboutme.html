@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${page.title}">关于玫苓</title>
+    <meta name="keywords" th:attr="content=${page.seoKeywords}" />
+    <meta name="description" th:attr="content=${page.seoDescription}" />
+    <link rel="stylesheet" type="text/css" href="/css/reseet.css">
+    <link rel="stylesheet" type="text/css" href="/css/pc_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/flexslider.css">
+    <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
+</head>
+<style>
+    .flex-direction-nav a {
+        background: url(/images/arr4.png) no-repeat;
+        color: rgba(0, 0, 0, 1.0);
+    }
+    /*品牌历程相关css*/
+    ol.flex-control-nav {
+        top: -30px;
+        bottom: 0;
+        text-align: left;
+        width: 1000px;
+    }
+    
+    .flex-control-nav li {
+        margin: 0 0px;
+    }
+
+    .flex-control-paging li a {
+
+        border-radius: 0;
+        width: 94px;
+        height: 110px;
+        background-image: url(/images/Brand_History_icon.png);
+        background-position: 66% 100%;
+        background-repeat: no-repeat;
+        text-indent: 0px;
+        background-color: rgba(0, 0, 0, 0);
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -o-border-radius: 0px;
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0.0);
+        -moz-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0.0);
+        -o-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0.0);
+        box-shadow: inset 0 0 0px rgba(0, 0, 0, 0.0);
+        color: #595757;
+        font-size: 17px;
+        font-weight: bold;
+        line-height: 168px;
+        text-align: center;
+    }
+
+    .flex-control-paging li a:hover {
+        background-image: url(/images/Brand_History_icon_on2.png);
+        background-position: 66% 100%;
+        background-repeat: no-repeat;
+        color: #fff;
+        background-color: rgba(255, 255, 255, 1.0);
+    }
+
+    .flex-control-paging li a.flex-active {
+        background-image: url(/images/Brand_History_icon_on.png);
+        background-position: 100% 100%;
+        background-repeat: no-repeat;
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 22px;
+        line-height: 158px;
+        color: #fff;
+    }
+
+    .flex-direction-nav a {
+        top: 60%
+    }
+</style>
+
+<body>
+    <header class="newspage_top" th:style="'background-image:url(' +${page.pageGbPic} + ');'">
+        <div th:include="include :: pc_header"></div>
+        <div class="top_title">
+            <h1 >关于玫苓</h1>
+            <p class="cross_bar">
+                <span class="left"></span>
+                <span >About Us</span>
+                <span class="right"></span>
+            </p>
+        </div>
+    </header>
+    <main>
+        
+        <!--教育愿景-->
+        <div class="educational_vision" th:style="'background-image:url(' +${edu.gwImg1} + ');'">
+            <!--style="background-image: url(${edu.gwImg1});"-->
+            <div class="about_us_title">
+                <h1 th:text="${edu.gwTitle}">
+
+                </h1>
+                <p class="subtitle" th:text="${edu.gwSubtitle}">
+                    Educational Vision
+                </p>
+                <div class="vision_transverse">
+                    <span class="vision_tran_s"></span>
+                </div>
+            </div>
+            <div class="text" th:utext="${edu.gwContext}">
+
+            </div>
+
+        </div>
+        <!--品牌简介-->
+        <div class="brand_introduction">
+
+            <div class="one">
+                <div class="left_div title_div">
+                    <h1 th:text="${introList[0].gwTitle}">
+                        品牌简介
+                    </h1>
+                    <p class="subtitle" th:text="${introList[0].gwSubtitle}">
+                        Brand Introduction
+                    </p>
+                    <div class="text_div">
+                        <p class="" th:utext="${introList[0].gwContext}">
+                        </p>
+                    </div>
+                </div>
+                <div class="img_div">
+                    <img th:src="${introList[0].gwImg1}" >
+                </div>
+            </div>
+            <div class="two">
+                <div class="left_div">
+                    <img  th:src="${introList[1].gwImg1}" alt="">
+                </div>
+                <div class="text_div">
+                    <span>
+                    </span>
+                    <p  th:utext="${introList[1].gwContext}">
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--品牌历程-->
+        <div class="brand_history">
+            <div class="about_us_title">
+                <h1>品牌历程</h1>
+                <p class="subtitle">
+                    Brand History
+                </p>
+                <div class="vision_transverse">
+                    <span class="vision_tran_s"></span>
+                </div>
+            </div>
+            <div class="brand_history_list">
+                <div class=" flexslider" id="slider">
+                    <div class="brand_history_otm">&nbsp;<!--On The More--></div>
+                    <ul class="slides">
+                        <li class="images" th:each="course:${courseList}">
+                            <div class="img_div">
+                                <img th:src="${course.gwImg1}" alt="">
+                            </div>
+                            <div class="text_div">
+                                <h2 th:text="${course.gwTitle}">
+                                    品牌的诞生
+                                </h2>
+                                <div class="history_line">
+                                    <span></span>
+                                </div>
+                                <div th:utext="${course.gwContext}">
+                                    <p>
+                                        人的一生，在舞台上的时光有限，多数的时候，置身台下，是社会中的一员，如何与自己相处，与别人互动是每个学音乐的人的人生课题，因此如何在音乐学习过程同时兼得人格熏陶，值得大家来关心。
+                                    </p>
+                                    <p>
+                                        在这样的理念感召下，将1992年创办的台湾打击乐教学系统于2015年引入内地,让更多喜欢音乐的的父母,孩子受益.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--这个是别表的时间  需要通过js赋值给列表-->
+            <ul style="display: none" id="brand_history_time"  >
+                 <li th:each="course:${courseList}" th:text="${course.gwChangeStartTime}"></li>
+            </ul>
+        </div>
+        <!-- 世界级研发团队-->
+        <div class="team_div">
+            <div class="chalo_div" th:style="'background-image:url(' +${teamTop.gwImg1} + ');'">
+                <h2 th:text="${teamTop.gwTitle}">
+                    世界级研发团队2
+                </h2>
+                <p class="subtitle"  th:text="${teamTop.gwSubtitle}">
+                    International R&amp;D Team
+                </p>
+                <div class="line_div">
+                    <span>
+                        
+                    </span>
+                </div>
+                <h3 th:text="${teamTop.gwTitle}">
+                    Holistic首席顾问
+                </h3>
+                <p class="designation"  th:text="${teamTop.gwSubtitle}">
+                    国际打击乐大师
+                </p>
+                <p class="eng" th:text="${teamTop.gwMem}">
+                    Chalo Eduardo
+                </p>
+            </div>
+            <div class="team_list_div">
+                <ul class="team_list" >
+                    <li th:each="teamList:${teamList}">
+                        <div class="img_div" ><img th:src="${teamList.gwImg1}" alt=""></div>
+                        <p class="designation" th:text="${teamList.gwTitle}">击乐顾问</p>
+                        <h3 class="name" th:text="${teamList.gwSubtitle}">
+                            C.G. Ryche
+                        </h3>
+                        <div class="line_div">
+                            <span></span>
+                        </div>
+                        <div class="text_div" th:utext="${teamList.gwContext}">
+                            <p>
+                                拥有「梦幻编曲者」<br /> 「新型态打击乐者」
+                                <br /> 称号的美籍击乐大师
+                                <br /> 迪斯尼/Nike/皮克斯/PBS电视台
+                                <br /> 指定合作音乐家
+                                <br /> 担任Georganne Gould/Benise<br /> 等多位艺人音乐总监
+                                <br /> 受邀 Mavric Awards颁奖演出<br />
+                            </p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="brand_hono">
+            <div class="about_us_title">
+                <h1 >
+                    品牌荣誉
+                </h1>
+                <p class="subtitle">
+                    Brand Hono
+                </p>
+                <div class="vision_transverse">
+                    <span class="vision_tran_s"></span>
+                </div>
+            </div>
+
+            <div class="brand_hono_img">
+               <img src="/images/Brand_Honor_img.png" alt="">
+            </div>
+            <div class="brand_hono_list">
+                <ul>
+                    <li th:each="hono:${honoList}" th:text="${hono.gwTitle}" >
+                    </li>
+                </ul>
+            </div>
+            <div class="brand_hono_img">
+                <img src="/images/Brand_Honor_img2.png" alt="">
+            </div>
+        </div>
+    </main>
+    <div th:include="include :: pc_footer"></div>
+    <script>
+        /*轮播图*/
+        $('#slider').flexslider({
+            animation: "solid", //动画效果
+            animationLoop: false, //是否循环播放
+            controlNav: true, // Boolean: 是否创建控制点
+            directionNav: true, // Boolean: 是否创建上/下一个按钮（previous/next）
+            startAt: 0, // Integer: 开始播放的 slide，从 0 开始计数
+            slideshow: false, // Boolean: 是否自动播放
+            slideshowSpeed: 5000, // Integer: ms 滚动间隔时间
+            animationSpeed: 600, // Integer: ms 动画滚动速度
+            direction: "horizontal", // String: 滚动方向 ["horizontal"|"vertical"]
+            pauseOnAction: true, // Boolean: 用户操作时停止自动播放
+            pauseOnHover: true, // Boolean: 悬停时暂停自动播放
+            touch: true, // Boolean: 允许触摸屏触摸滑动滑块
+            manualControls: ".js-slidernav i", //Selector: .自定义控制导航// 小圆点活数字标示 css 选择
+            start: function(slider) { //加载完成后回调函数
+                /*var w = document.body.clientWidth;
+                if (w < 768) {
+                    $(".flex-direction-nav").css("display", "none")
+                }*/
+            }
+        });
+        /*设置品牌历程的时间*/
+        $(document).ready(function () {
+            var list_l  =$("#brand_history_time li").length;
+            console.log(list_l);
+            for (i=0;i<list_l;i++){
+                var list_time = $("#brand_history_time li").eq(i).text();
+                console.log(list_time);
+                $(".flex-control-paging li a").eq(i).text(list_time.substring(24,28))
+            }
+        });
+    </script>
+</body>
+</html>

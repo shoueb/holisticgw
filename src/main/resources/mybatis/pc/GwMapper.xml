@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.pc.dao.GwDao">
+
+	<select id="get" resultType="com.bootdo.pc.domain.GwDO">
+		select `id`,`seo_keywords`,`seo_description`,`pc_page_id`,`gw_count`,`gw_home_page_show`,
+		`gw_type`,`gw_serial_num`,`gw_title`,`gw_subtitle`,`gw_mem`,`gw_context`,
+		`gw_img1`,`gw_img2`,`gw_img3`,`gw_img4`,`gw_img5`,`gw_img6`,`gw_img7`,`gw_change_start_time`,`gw_change_end_time`,
+		`gw_sort`,gw_status,`createTime`,`createBy`,`updateTime`,`updateBy`,`author`
+		 from pc_gw where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.pc.domain.GwDO">
+		select `id`,`seo_keywords`,`seo_description`,`pc_page_id`,`gw_count`,`gw_home_page_show`,
+		`gw_type`,`gw_serial_num`,`gw_title`,`gw_subtitle`,`gw_mem`,`gw_context`,
+		`gw_img1`,`gw_img2`,`gw_img3`,`gw_img4`,`gw_img5`,`gw_img6`,`gw_img7`,`gw_change_start_time`,`gw_change_end_time`,
+		`gw_sort`,gw_status,`createTime`,`createBy`,`updateTime`,`updateBy`,`author`
+		from pc_gw
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="pcPageId != null and pcPageId >-1 "> and pc_page_id = #{pcPageId} </if>
+				  <if test="gwCount != null and gwCount != ''"> and gw_count = #{gwCount} </if>
+		  		  <if test="gwHomePageShow != null and gwHomePageShow != ''"> and gw_home_page_show = #{gwHomePageShow} </if>
+		  		  <if test="gwType != null and gwType != ''"> and gw_type = #{gwType} </if>
+		  		  <if test="gwSerialNum != null and gwSerialNum != ''"> and gw_serial_num = #{gwSerialNum} </if>
+				  <if test="gwTitle != null and gwTitle != ''"> and ( gw_title like concat('%',#{gwTitle},'%')  or gw_subtitle like  concat('%',#{gwTitle},'%')  ) </if>
+		  		  <if test="gwMem != null and gwMem != ''"> and gw_mem = #{gwMem} </if>
+		  		  <if test="gwContext != null and gwContext != ''"> and gw_context = #{gwContext} </if>
+		  		  <if test="gwImg1 != null and gwImg1 != ''"> and gw_img1 = #{gwImg1} </if>
+		  		  <if test="gwImg2 != null and gwImg2 != ''"> and gw_img2 = #{gwImg2} </if>
+		  		  <if test="gwImg3 != null and gwImg3 != ''"> and gw_img3 = #{gwImg3} </if>
+		  		  <if test="gwImg4 != null and gwImg4 != ''"> and gw_img4 = #{gwImg4} </if>
+					<if test="gwImg5 != null and gwImg5 != ''"> and gw_img5 = #{gwImg5} </if>
+					<if test="gwImg6 != null and gwImg6 != ''"> and gw_img6 = #{gwImg6} </if>
+					<if test="gwImg7 != null and gwImg7 != ''"> and gw_img7 = #{gwImg7} </if>
+		  		  <if test="gwChangeStartTime != null and gwChangeStartTime != ''"> and gw_change_start_time = #{gwChangeStartTime} </if>
+		  		  <if test="gwChangeEndTime != null and gwChangeEndTime != ''"> and gw_change_end_time = #{gwChangeEndTime} </if>
+		  		  <if test="gwSort != null and gwSort != ''"> and gw_sort = #{gwSort} </if>
+			      <if test="gwStatus != null and gwStatus != ''"> and gw_status = #{gwStatus} </if>
+		  		  <if test="createtime != null and createtime != ''"> and createTime = #{createtime} </if>
+				  <if test="startTime != null and startTime != ''"><![CDATA[ and createTime => #{startTime} ]]></if>
+				  <if test="endTime != null and endTime != ''"><![CDATA[  and createTime <= #{startTime}]]> </if>
+		  		  <if test="createby != null and createby != ''"> and createBy = #{createby} </if>
+		  		  <if test="updatetime != null and updatetime != ''"> and updateTime = #{updatetime} </if>
+		  		  <if test="updateby != null and updateby != ''"> and updateBy = #{updateby} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id asc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	<select id="listDistinct" resultType="java.lang.String">
+		select DISTINCT `gw_type` from pc_gw
+		<where>
+			<if test="pcPageId != null and pcPageId >-1 "> and pc_page_id = #{pcPageId} </if>
+			<if test="gwStatus != null and gwStatus != ''"> and gw_status = #{gwStatus} </if>
+		</where>
+	</select>
+ 	<select id="count" resultType="int">
+		select count(*) from pc_gw
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="pcPageId != null and pcPageId >-1 "> and pc_page_id = #{pcPageId} </if>
+			 	  <if test="gwCount != null and gwCount != ''"> and gw_count = #{gwCount} </if>
+		  		  <if test="gwHomePageShow != null and gwHomePageShow != ''"> and gw_home_page_show = #{gwHomePageShow} </if>
+		  		  <if test="gwType != null and gwType != ''"> and gw_type = #{gwType} </if>
+		  		  <if test="gwSerialNum != null and gwSerialNum != ''"> and gw_serial_num = #{gwSerialNum} </if>
+		  		  <if test="gwTitle != null and gwTitle != ''"> and gw_title = #{gwTitle} </if>
+		  		  <if test="gwSubtitle != null and gwSubtitle != ''"> and gw_subtitle = #{gwSubtitle} </if>
+		  		  <if test="gwMem != null and gwMem != ''"> and gw_mem = #{gwMem} </if>
+		  		  <if test="gwContext != null and gwContext != ''"> and gw_context = #{gwContext} </if>
+		  		  <if test="gwImg1 != null and gwImg1 != ''"> and gw_img1 = #{gwImg1} </if>
+		  		  <if test="gwImg2 != null and gwImg2 != ''"> and gw_img2 = #{gwImg2} </if>
+		  		  <if test="gwImg3 != null and gwImg3 != ''"> and gw_img3 = #{gwImg3} </if>
+		  		  <if test="gwImg4 != null and gwImg4 != ''"> and gw_img4 = #{gwImg4} </if>
+			      <if test="gwImg5 != null and gwImg5 != ''"> and gw_img5 = #{gwImg5} </if>
+			      <if test="gwImg6 != null and gwImg6 != ''"> and gw_img6 = #{gwImg6} </if>
+			      <if test="gwImg7 != null and gwImg7 != ''"> and gw_img7 = #{gwImg7} </if>
+		  		  <if test="gwChangeStartTime != null and gwChangeStartTime != ''"> and gw_change_start_time = #{gwChangeStartTime} </if>
+		  		  <if test="gwChangeEndTime != null and gwChangeEndTime != ''"> and gw_change_end_time = #{gwChangeEndTime} </if>
+		  		  <if test="gwSort != null and gwSort != ''"> and gw_sort = #{gwSort} </if>
+			      <if test="gwStatus != null and gwStatus != ''"> and gw_status = #{gwStatus} </if>
+		  		  <if test="createtime != null and createtime != ''"> and createTime = #{createtime} </if>
+		  		  <if test="createby != null and createby != ''"> and createBy = #{createby} </if>
+		  		  <if test="updatetime != null and updatetime != ''"> and updateTime = #{updatetime} </if>
+		  		  <if test="updateby != null and updateby != ''"> and updateBy = #{updateby} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.pc.domain.GwDO" useGeneratedKeys="true" keyProperty="id">
+		insert into pc_gw
+		(
+			`pc_page_id`,
+			`gw_count`,
+			`seo_keywords`,`seo_description`,
+			`gw_home_page_show`, 
+			`gw_type`, 
+			`gw_serial_num`, 
+			`gw_title`, 
+			`gw_subtitle`, 
+			`gw_mem`, 
+			`gw_context`, 
+			`gw_img1`,
+			`gw_img2`,
+			`gw_img3`,
+			`gw_img4`,
+			`gw_img5`,
+			`gw_img6`,
+			`gw_img7`,
+			`gw_change_start_time`, 
+			`gw_change_end_time`, 
+			`gw_sort`,
+			gw_status,
+			`createTime`, 
+			`createBy`, 
+			`updateTime`,
+			`updateBy`,
+			author
+		)
+		values
+		(
+			#{pcPageId},
+			#{gwCount},
+			#{seoKeywords},
+			#{seoDescription},
+			#{gwHomePageShow}, 
+			#{gwType}, 
+			#{gwSerialNum}, 
+			#{gwTitle}, 
+			#{gwSubtitle}, 
+			#{gwMem}, 
+			#{gwContext}, 
+			#{gwImg1}, 
+			#{gwImg2}, 
+			#{gwImg3}, 
+			#{gwImg4},
+			#{gwImg5},
+			#{gwImg6},
+			#{gwImg7},
+			#{gwChangeStartTime}, 
+			#{gwChangeEndTime}, 
+			#{gwSort},
+			#{gwStatus},
+			#{createtime}, 
+			#{createby}, 
+			#{updatetime}, 
+			#{updateby},
+			#{author}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.pc.domain.GwDO">
+		update pc_gw 
+		<set>
+			<if test="pcPageId != null and pcPageId >-1">`pc_page_id` = #{pcPageId}, </if>
+			<if test="gwCount != null">`gw_count` = #{gwCount}, </if>
+			<if test="seoKeywords != null">`seo_keywords` = #{seoKeywords}, </if>
+			<if test="seoDescription != null">`seo_description` = #{seoDescription}, </if>
+			<if test="gwHomePageShow != null">`gw_home_page_show` = #{gwHomePageShow}, </if>
+			<if test="gwType != null">`gw_type` = #{gwType}, </if>
+			<if test="gwSerialNum != null">`gw_serial_num` = #{gwSerialNum}, </if>
+			<if test="gwTitle != null">`gw_title` = #{gwTitle}, </if>
+			<if test="gwSubtitle != null">`gw_subtitle` = #{gwSubtitle}, </if>
+			<if test="gwMem != null">`gw_mem` = #{gwMem}, </if>
+			<if test="gwContext != null">`gw_context` = #{gwContext}, </if>
+			<if test="gwImg1 != null">`gw_img1` = #{gwImg1}, </if>
+			<if test="gwImg2 != null">`gw_img2` = #{gwImg2}, </if>
+			<if test="gwImg3 != null">`gw_img3` = #{gwImg3}, </if>
+			<if test="gwImg4 != null">`gw_img4` = #{gwImg4}, </if>
+			<if test="gwImg5 != null">`gw_img5` = #{gwImg5}, </if>
+			<if test="gwImg6 != null">`gw_img6` = #{gwImg6}, </if>
+			<if test="gwImg7 != null">`gw_img7` = #{gwImg7}, </if>
+			<if test="gwChangeStartTime != null">`gw_change_start_time` = #{gwChangeStartTime}, </if>
+			<if test="gwChangeEndTime != null">`gw_change_end_time` = #{gwChangeEndTime}, </if>
+			<if test="gwSort != null">`gw_sort` = #{gwSort}, </if>
+			<if test="gwStatus != null">`gw_status` = #{gwStatus}, </if>
+			<if test="createtime != null">`createTime` = #{createtime}, </if>
+			<if test="createby != null">`createBy` = #{createby}, </if>
+			<if test="updatetime != null">`updateTime` = #{updatetime}, </if>
+			<if test="updateby != null">`updateBy` = #{updateby},</if>
+			<if test="author != null">`author` = #{author}</if>
+
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		UPDATE pc_gw set gw_status='del' WHERE  id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from pc_gw where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

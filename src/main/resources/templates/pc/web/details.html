@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${article.gwTitle}">详情</title>
+	<meta name="keywords" th:attr="content=${article.seoKeywords}" />
+	<meta name="description" th:attr="content=${article.seoDescription}" />
+	<link rel="stylesheet" type="text/css" href="/css/reseet.css">
+	<link rel="stylesheet" type="text/css" href="/css/pc_style.css">
+	<link rel="stylesheet" type="text/css" href="/css/flexslider.css">
+</head>
+<body>
+
+	<header class="newspage_top" style="background-image:url(/images/about_us_banner.png);">
+
+	<div th:include="include :: pc_header"></div>
+	<div class="top_title">
+		<h1 th:text="${article.gwType}">文章详情</h1>
+		<p class="cross_bar">
+			<span class="left"></span>
+			<span >Details</span>
+			<span class="right"></span>
+		</p>
+	</div>
+	</header>
+	<main class="article_details">
+		<!--标题区域-->
+		<div class="article_title">
+			<!--标题-->
+			<h1 th:text="${article.gwTitle}" style="font-size: 36px;color: #fdd000">
+				第十四届台湾梅苓杯木琴大赛圆满落幕
+			</h1>
+			<!--副标题-->
+			<p class="subtitle" th:text="${article.gwSubtitle}">
+				第十四届台湾梅苓杯木琴大赛圆满落幕
+			</p>
+		</div>
+		<!--时间区域-->
+		<div class="article_other">
+			<!--预留-->
+			<div class="left">
+					&nbsp;
+			</div>
+		<!--文章创建时间-->
+			<div class="right">
+				<span class="bianji">
+					编辑：
+					<span th:text="${article.author}">
+						Kevin
+					</span>
+				</span>
+				&nbsp;|&nbsp;
+				<span class="time" >
+					发布：
+					<span th:text="${#dates.format(article.createtime, 'yyyy年MM月dd日 ')}"></span>
+				</span>
+				&nbsp;|&nbsp;
+				<span class="yuedu">
+					阅读：
+					<span th:text="${article.gwCount}">
+						867
+					</span>
+				</span>
+			</div>
+		</div>
+		<!--简介区域-->
+		<div class="article_introduce">
+			<div class="into_icon1">
+			<img src="/images/investment_icon_talk.png" alt="">
+			</div>
+			<p th:text="${article.gwMem}">
+
+			</p>
+			<div class="into_icon2">
+				<img src="/images/investment_icon_talk.png" alt="">
+			</div>
+		</div>
+		<!--正文区域-->
+		<div  class="article_main" th:utext="${article.gwContext}">
+
+		</div>
+		<div class="article_end">
+			————全文完————
+		</div>
+		<div class="tuijian">
+			<div class="tuijian_title">
+				<div class="icon">
+					<img src="/images/book_orange.png"   alt="">
+				</div>
+				<h2>推荐阅读 <span> Extended Reading</span></h2>
+			</div>
+			<div class="tuijianlist">
+				<ul style="list-style-type: disc;">
+					<li th:each="news:${newsList1}">
+						&bull;&nbsp;<a th:href="'/pc/details?id='+${news.id}" th:utext="${news.gwTitle}">11111111111111111111111111</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</main>
+	<div th:include="include :: pc_footer"></div>
+</body>
+</html>

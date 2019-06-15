@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${page.title}">核心优势</title>
+    <meta name="keywords" th:attr="content=${page.seoKeywords}" />
+    <meta name="description" th:attr="content=${page.seoDescription}" />
+    <link rel="stylesheet" type="text/css" href="/css/reseet.css">
+    <link rel="stylesheet" type="text/css" href="/css/pc_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/flexslider.css">
+</head>
+
+<body>
+    <header class="newspage_top" th:style="'background-image:url(' +${page.pageGbPic} + ');'">
+        <div th:include="include :: pc_header"></div>
+        <div class="top_title">
+            <h1 >核心优势</h1>
+            <p class="cross_bar">
+                <span class="left"></span>
+                <span  >Advantage</span>
+                <span class="right"></span>
+            </p>
+        </div>
+    </header>
+   <main>
+        <!--&lt;!&ndash;核心优势介绍&ndash;&gt;-->
+        <ul class="advan_list">
+            <li th:each="list4:${list4}">
+                <div class="li_div">
+                    <div class="advan_img">
+                        <img th:src="${list4.gwImg2}" alt="">
+                    </div>
+                    <div>
+                        <div class="advan_test">
+                            <div class="advan_icon">
+                                <img th:src="${list4.gwImg1}" alt="">
+                            </div>
+                            <div class="advan_t">
+                                <h1 th:text="${list4.gwTitle}">研发</h1>
+                                <p  th:text="${list4.gwSubtitle}">DEVELOPMENT</p>
+                            </div>
+                            <div class="advan_d " th:utext="${list4.gwContext}">
+                                <p >
+                                    超过25年教学沉淀的梅苓教学系统，在台湾拥有专业权威的国际研发团队，来自世界各地的国际击乐大师，将教授经验与实践所得相凝聚，研发成教学精华流芳百世。研发编撰了<span>近百套有连贯性，又有独立性的绘本教材及音像制品，针对不同年龄段、不同基础的学者提供优质的教材，不仅能够满足超长学龄跨度的适龄需求</span>，可供持续教学，对应的阶段性课程还能够满足音乐基础不一的学者使用，提升了区别于同质化市场的竞争实力。
+                                </p>
+                                <p >
+                                    Holistic玫苓全人音乐的教学研发不断巩固、更新和完善，使教学研发成果无法被轻易复制，教学成效更是受到了教育市场中各大平台的认可与青睐，为品牌的核心体系打下了殷实的基础。
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+
+        </ul>
+    </main>
+    <div th:include="include :: pc_footer"></div>
+
+</body>
+</html>

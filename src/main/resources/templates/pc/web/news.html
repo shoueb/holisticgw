@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${page.title}">新闻</title>
+	<meta name="keywords" th:attr="content=${page.seoKeywords}" />
+	<meta name="description" th:attr="content=${page.seoDescription}" />
+	<link rel="stylesheet" type="text/css" href="/css/reseet.css">
+	<link rel="stylesheet" type="text/css" href="/css/pc_style.css">
+	<link rel="stylesheet" type="text/css" href="/css/flexslider.css">
+</head>
+
+<body>
+<header class="newspage_top" th:style="'background-image:url(' +${page.pageGbPic} + ');'">
+	<div th:include="include :: pc_header"></div>
+	<div class="top_title">
+		<h1 >新闻动态</h1>
+		<p class="cross_bar">
+			<span class="left"></span>
+			<span >News</span>
+			<span class="right"></span>
+		</p>
+	</div>
+</header>
+<main class="news_main">
+	<nav class="news_nav">
+		<ul id="news_nav_list" class="flex">
+			<li th:each="newNav:${newsNavList}" >
+				<span th:if="${gwType==newNav}" class="circle"></span>
+				<a th:href="@{${'/pc/news?'}(gwType=${newNav},pageNum=1,size=10)}">
+					<span  th:text="${newNav}">活动预告 </span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="news_art">
+		<ul>
+			<li th:each="news:${newsList1}">
+				<div class="img_div">
+					<a th:href="'/pc/details?id='+${news.id}">
+						<div class="art_mask">
+							<div><img src="/images/book.png" alt=""></div>
+							<p>阅读全文</p>
+						</div>
+						<img th:src="${news.gwImg1}" alt="" style="width: auto;height: auto;max-width: 100%;max-height: 100%;">
+					</a>
+				</div>
+				<a th:href="'/pc/details?id='+${news.id}">
+					<div class="test_div">
+						<time>
+                        <span th:text="${#dates.format(news.gwChangeStartTime, 'yyyy-MM ')}">
+                            2018-07
+                        </span>
+							<span th:text="${#dates.format(news.gwChangeStartTime, 'dd')}" class="dd">23</span>
+						</time>
+						<h1 th:utext="${news.gwTitle}">第十四届台湾梅苓杯木琴大赛圆满落幕</h1>
+						<p th:utext="${news.gwMem}">
+							2018年7月23日，第十四届台湾梅苓杯目前大赛在台北市艺术中心圆满落下帷幕
+						</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+		<div class="yema">
+			<div class="upper" th:if="${not isFirstPage}">
+				<a  th:href="@{${'/pc/news'}(pageNum=${pageNum-1},pageSize=${pageSize})}">上一页</a>
+			</div>
+			<div class="yema_num" th:each="pageNo : ${#numbers.sequence(formPages, toPages)}">
+				<div th:if="${pageNum eq pageNo}" class="on">
+					<a  href="javascript:void(0);">
+						<span th:text="${pageNo}"></span>
+					</a>
+				</div>
+				<div th:if="${not (pageNum eq pageNo)}">
+					<a th:href="@{${'/pc/news?'}(gwType=${gwType},pageNum=${pageNo},size=${pageSize})}">
+						<span th:text="${pageNo}"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<div th:include="include :: pc_footer"></div>
+<script>
+	$('#news_nav_list li').click(function () {
+	    $(this).addClass('on').siblings().removeClass('on')
+
+    });
+    window.addEventListener("scroll",function() {
+        //alert("滚动了");
+        //变量t就是滚动条滚动时，到顶部的距离
+        var h = document.body.scrollHeight;
+        var t = document.documentElement.scrollTop || document.body.scrollTop;
+        var wh = window.screenTop;
+
+        if ((t >= 550)&&(t<3596)) {
+            $('#news_nav_list').css("top",t-550);
+        }else if(t < 550){
+            $('#news_nav_list').css("top",0);
+        }
+      /*  console.log(t)
+        if (t>60){
+            $("#back_top").fadeIn();
+        }else {
+            $("#back_top").fadeOut();
+        }*/
+    })
+
+
+</script>
+<script>
+
+</script>
+</body>
+</html>

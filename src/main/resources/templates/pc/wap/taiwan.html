@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--↓↓↓↓↓↓↓↓↓禁用缓存↓↓↓↓↓↓↓↓↓↓↓↓-->
+    <title th:text="${page.title}">关于玫苓</title>
+    <meta name="keywords" th:attr="content=${page.seoKeywords}" />
+    <meta name="description" th:attr="content=${page.seoDescription}" />
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <!--↑↑↑↑↑↑↑↑↑↑禁用缓存↑↑↑↑↑↑-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/wap/reseet.css">
+    <link rel="stylesheet" type="text/css" href="/css/wap/phone_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/wap/flexslider.css">
+    <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
+    <style>
+        .flexslider {
+            border: none;
+            margin: 0;
+        }
+
+        .flex-control-nav {
+            bottom: 0;
+            top: 20rem;
+        }
+    </style>
+</head>
+
+<body style="background-color: #fff; ">
+    <!--overflow-x: hidden-->
+    <header class="newspage_top"  th:style="'background-image:url(' +${page.pageGbPic} + ');'">
+        <div class="top_nav_div">
+            <div class="top_nav_logo">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="p_mul" id="p_mul">
+                <!-- <img src="/images/phone_navIcon.png" alt="">-->
+            </div>
+        </div>
+        <nav id="top_nac_ul"  class="top_nac" th:include="include :: wap_header"></nav>
+        <div class="top_title">
+            <h1>台湾梅苓</h1>
+            <p class="cross_bar">
+                <span class="left"></span>
+                <span class="text">TAIWAN MEILING</span>
+                <span class="right"></span>
+            </p>
+        </div>
+    </header>
+    <main>
+        <div class="meniling_intro">
+            <div class="img_div">
+                <img th:src="${taiwanTitle.gwImg2}" alt="">
+            </div>
+            <div class="text_div"  th:utext="${taiwanTitle.gwContext}">
+
+            </div>
+        </div>
+        <div class="meniling_w">
+            <img th:src="${taiwanTitle.gwImg3}" alt="">
+        </div>
+        <ul class="meiling_competition">
+            <li class="competition_one">
+                <div class="com_icon">
+                    <img th:src="${taiwanList1.gwSubtitle}" alt="">
+                </div>
+                <div class="img_div">
+                    <div class="flexslider" id="slider1">
+                        <ul class="slides">
+                            <li class="images" 　th:if="${not #lists.isEmpty(taiwanList1.gwImg1)}">
+                                <img  th:src="${taiwanList1.gwImg1}" alt="">
+                            </li>
+                            <li class="images" 　th:if="${not #lists.isEmpty(taiwanList1.gwImg2)}">
+                                <img  th:src="${taiwanList1.gwImg2}" alt="">
+                            </li>
+                            <li class="images" 　th:if="${not #lists.isEmpty(taiwanList1.gwImg3)}">
+                                <img  th:src="${taiwanList1.gwImg3}" alt="">
+                            </li>
+                            <li class="images" th:if="${not #lists.isEmpty(taiwanList1.gwImg4)}">
+                                <img  th:src="${taiwanList1.gwImg4}" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text_div" th:utext="${taiwanList1.gwContext}">
+
+                </div>
+            </li>
+            <li class="competition_two">
+                <div class="com_icon">
+                    <img th:src="${taiwanList2.gwSubtitle}" alt="">
+                </div>
+                <div class="img_div">
+                    <div class="flexslider" id="slider2">
+                        <ul class="slides">
+                            <li class="images" 　th:if="${not #lists.isEmpty(taiwanList2.gwImg1)}">
+                                <img  th:src="${taiwanList2.gwImg1}" alt="">
+                            </li>
+                            <li class="images" 　th:if="${not #lists.isEmpty(taiwanList2.gwImg2)}">
+                                <img  th:src="${taiwanList2.gwImg2}" alt="">
+                            </li>
+                            <li class="images" 　th:if="${not #lists.isEmpty(taiwanList2.gwImg3)}">
+                                <img  th:src="${taiwanList2.gwImg3}" alt="">
+                            </li>
+                            <li class="images" th:if="${not #lists.isEmpty(taiwanList2.gwImg4)}">
+                                <img  th:src="${taiwanList2.gwImg4}" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<img src="/images/meiling_tw_img2.png" alt=""></div>-->
+                <div class="text_div"  th:utext="${taiwanList2.gwContext}">
+
+                </div>
+
+            </li>
+        </ul>
+        <div class="expents_talks">
+
+            <div class="expents_talks_div">
+                <div class="expents_talks_icon">
+                    <img src="/images/expeits_talk_icon.png" alt="">
+                </div>
+                <h1 th:text="${taiwanTitle1.gwTitle}">
+                    专家赠言
+                </h1>
+                <p class="subtitle" th:text="${taiwanTitle1.gwSubtitle}">
+                    26年倾力打造完整音乐生态链
+                </p>
+                <ul class="talks_list">
+                    <li th:each="taiwanList3:${taiwanList3}">
+                        <div class="img"><img th:src="${taiwanList3.gwImg1}" alt=""></div>
+                        <div class="text">
+                           <div class="tall" th:utext="${taiwanList3.gwContext}">
+
+                           </div>
+                            <p class="name" th:utext="${taiwanList3.gwTitle}">
+                                Chalo Eduardo
+                            </p>
+                            <p class="t_name" th:utext="${taiwanList3.gwSubtitle}">
+                                美国著名音乐家
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer th:include="include :: wap_footer"></footer>
+    <script>
+        $("#p_mul").click(function() {
+            var tnl = $("#top_nac_ul")
+            if (tnl.is(":hidden")) {
+                $("#p_mul").addClass("on");
+                $("#top_nac_ul").slideDown();
+            } else {
+                $("#p_mul").removeClass("on");
+                $("#top_nac_ul").slideUp();
+            }
+        })
+        $("#click_yy").click(function() {
+            $("#sign_from2").slideDown();
+            $("#sign_from").slideUp();
+
+        })
+        $("#click_tj").click(function() {
+            $("#sign_from2").slideUp();
+            $("#sign_from").slideDown();
+        })
+        /*轮播图*/
+        $('#slider1').flexslider({
+            animation: "solid", //动画效果
+            animationLoop: true, //是否循环播放
+            controlNav: true, // Boolean: 是否创建控制点
+            directionNav: false, // Boolean: 是否创建上/下一个按钮（previous/next）
+            startAt: 0, // Integer: 开始播放的 slide，从 0 开始计数
+            slideshow: true, // Boolean: 是否自动播放
+            slideshowSpeed: 5000, // Integer: ms 滚动间隔时间
+            animationSpeed: 600, // Integer: ms 动画滚动速度
+            direction: "horizontal", // String: 滚动方向 ["horizontal"|"vertical"]
+            prevText: "/images/homePageR.png",
+            pauseOnAction: true, // Boolean: 用户操作时停止自动播放
+            pauseOnHover: true, // Boolean: 悬停时暂停自动播放
+            touch: true, // Boolean: 允许触摸屏触摸滑动滑块
+            start: function(slider) { //加载完成后回调函数
+                /*var w = document.body.clientWidth;
+                if (w < 768) {
+                    $(".flex-direction-nav").css("display", "none")
+                }*/
+            }
+        });
+        $('#slider2').flexslider({
+            animation: "solid", //动画效果
+            animationLoop: true, //是否循环播放
+            controlNav: true, // Boolean: 是否创建控制点
+            directionNav: false, // Boolean: 是否创建上/下一个按钮（previous/next）
+            startAt: 0, // Integer: 开始播放的 slide，从 0 开始计数
+            slideshow: true, // Boolean: 是否自动播放
+            slideshowSpeed: 6000, // Integer: ms 滚动间隔时间
+            animationSpeed: 600, // Integer: ms 动画滚动速度
+            direction: "horizontal", // String: 滚动方向 ["horizontal"|"vertical"]
+            prevText: "/images/homePageR.png",
+            pauseOnAction: true, // Boolean: 用户操作时停止自动播放
+            pauseOnHover: true, // Boolean: 悬停时暂停自动播放
+            touch: true, // Boolean: 允许触摸屏触摸滑动滑块
+            start: function(slider) { //加载完成后回调函数
+                /*var w = document.body.clientWidth;
+                if (w < 768) {
+                    $(".flex-direction-nav").css("display", "none")
+                }*/
+            }
+        });
+    </script>
+</body>
+
+</html>

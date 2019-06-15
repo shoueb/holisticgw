@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--↓↓↓↓↓↓↓↓↓禁用缓存↓↓↓↓↓↓↓↓↓↓↓↓-->
+    <title th:text="${page.title}">关于玫苓</title>
+    <meta name="keywords" th:attr="content=${page.seoKeywords}" />
+    <meta name="description" th:attr="content=${page.seoDescription}" />
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <!--↑↑↑↑↑↑↑↑↑↑禁用缓存↑↑↑↑↑↑-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/wap/reseet.css">
+    <link rel="stylesheet" type="text/css" href="/css/wap/phone_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/wap/flexslider.css">
+    <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
+</head>
+
+<body style="background-color: #fff;">
+    <header class="newspage_top" th:style="'background-image:url(' +${page.pageGbPic} + ');'">
+        <div class="top_nav_div">
+            <div class="top_nav_logo">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="p_mul" id="p_mul">
+                <!-- <img src="/images/phone_navIcon.png" alt="">-->
+            </div>
+        </div>
+        <nav id="top_nac_ul"  class="top_nac" th:include="include :: wap_header"></nav>
+        <div class="top_title">
+            <h1 >核心优势</h1>
+            <p class="cross_bar">
+                <span class="left"></span>
+                <span class="text"  >Advantage</span>
+                <span class="right"></span>
+            </p>
+        </div>
+    </header>
+    <main>
+        <!--核心优势介绍-->
+        <ul class="advan_list">
+            <li th:each="list4:${list4}">
+                <div class="li_div">
+                    <div class="advan_img">
+                        <img th:src="${list4.gwImg2}" alt="">
+                    </div>
+                    <div>
+                        <div class="advan_test">
+                            <div class="advan_icon">
+                                <img th:src="${list4.gwImg1}" alt="">
+                            </div>
+                            <div class="advan_t">
+                                <h1 th:text="${list4.gwTitle}">研发</h1>
+                                <p  th:text="${list4.gwSubtitle}">DEVELOPMENT</p>
+                            </div>
+                            <div class="advan_d " th:utext="${list4.gwContext}">
+                                <p >
+                                    超过25年教学沉淀的梅苓教学系统，在台湾拥有专业权威的国际研发团队，来自世界各地的国际击乐大师，将教授经验与实践所得相凝聚，研发成教学精华流芳百世。研发编撰了<span>近百套有连贯性，又有独立性的绘本教材及音像制品，针对不同年龄段、不同基础的学者提供优质的教材，不仅能够满足超长学龄跨度的适龄需求</span>，可供持续教学，对应的阶段性课程还能够满足音乐基础不一的学者使用，提升了区别于同质化市场的竞争实力。
+                                </p>
+                                <p >
+                                    Holistic玫苓全人音乐的教学研发不断巩固、更新和完善，使教学研发成果无法被轻易复制，教学成效更是受到了教育市场中各大平台的认可与青睐，为品牌的核心体系打下了殷实的基础。
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </main>
+    <footer th:include="include :: wap_footer"></footer>
+    <script>
+       $("#p_mul").click(function() {
+            var tnl = $("#top_nac_ul")
+            if (tnl.is(":hidden")) {
+                $("#p_mul").addClass("on");
+                $("#top_nac_ul").slideDown();
+            } else {
+                $("#p_mul").removeClass("on");
+                $("#top_nac_ul").slideUp();
+            }
+        })
+        $("#click_yy").click(function(){
+            $("#sign_from2").slideDown();
+            $("#sign_from").slideUp();
+            
+        })
+        $("#click_tj").click(function(){
+            $("#sign_from2").slideUp();
+            $("#sign_from").slideDown();
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<link href="/css/layui.css" rel="stylesheet">
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${page.id}"  type="hidden">
+							<input id="pageType" name="pageType" th:value="${page.pageType}"  type="hidden">
+							<input id="status" name="status" th:value="${page.status}"  type="hidden">
+							<input id="createtime" name="createtime" th:value="${page.createtime}"  type="hidden">
+							<input id="createby" name="createby" th:value="${page.createby}"  type="hidden">
+							<input id="updatetime" name="updatetime" th:value="${page.updatetime}"  type="hidden">
+							<input id="updateby" name="updateby" th:value="${page.updateby}"  type="hidden">
+							<input id="pageGbPic" name="pageGbPic" th:value="${page.pageGbPic}" class="form-control" type="hidden">
+							<div class="form-group">
+								<label class="col-sm-3 control-label">标题：</label>
+								<div class="col-sm-8">
+									<input id="title" name="title" th:value="${page.title}" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">副标题：</label>
+								<div class="col-sm-8">
+									<input id="pcSubtitle" name="pcSubtitle" th:value="${page.pcSubtitle}" class="form-control" type="text">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">seo关键字：</label>
+								<div class="col-sm-8">
+									<input id="seoKeywords" name="seoKeywords" th:value="${page.seoKeywords}" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">seo描述：</label>
+								<div class="col-sm-8">
+									<input id="seoDescription" name="seoDescription" th:value="${page.seoDescription}" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">&nbsp;</label>
+								<div class="col-sm-8">
+									<button type="button" class="layui-btn" id="pic">
+										<i class="fa fa-cloud"></i>上传页面背景
+									</button>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">&nbsp;</label>
+								<div class="col-sm-8">
+									<img th:src="${page.pageGbPic}"  onclick="openImg(this.src)" id="imgGwImg1" width="150" height="150">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<input id="pageContext" name="pageContext" type="hidden" th:value="${page.pageContext}"> <label
+									class="col-sm-2 control-label">内容：</label>
+								<div class="col-sm-10">
+									<div class="ibox-content no-padding">
+										<div id="editor" style="width:100%;height:340px;"></div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::#footer"></div>
+	<script type="text/javascript" src="/js/appjs/pc/page/edit.js"></script>
+	<script src="/js/plugins/ueditor/ueditor.config.js?v=1.0.0" th:src="@{/js/plugins/ueditor/ueditor.config.js?v=1.0.0}"></script>
+	<script src="/js/plugins/ueditor/ueditor.all.js?v=1.0.0" th:src="@{/js/plugins/ueditor/ueditor.all.js?v=1.0.0}"></script>
+	<script src="/js/plugins/ueditor/lang/zh-cn/zh-cn.js?v=1.0.0" th:src="@{/js/plugins/ueditor/lang/zh-cn/zh-cn.js?v=1.0.0}"></script>
+
+	<script type="text/javascript">
+        var ue = UE.getEditor('editor');
+        UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+        UE.Editor.prototype.getActionUrl = function(action) {
+            console.log(action);
+            if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
+                console.log('/common/sysFile/upload');
+                return '/common/sysFile/uploadImg'; //在这里返回我们实际的上传图片地址
+            } else {
+                console.log(this._bkGetActionUrl.call(this, action));
+                return this._bkGetActionUrl.call(this, action);
+            }
+        }
+	</script>
+</body>
+</html>

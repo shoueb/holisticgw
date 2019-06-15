@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<link href="/css/layui.css" rel="stylesheet">
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-content">
+					<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${gw.id}"  type="hidden">
+						<input id="pcPageId" name="pcPageId" th:value="${gw.pcPageId}"  type="hidden">
+						<input id="gwHomePageShow" name="gwHomePageShow" th:value="${gw.gwHomePageShow}"   type="hidden">
+						<input id="gwSerialNum" name="gwSerialNum" th:value="${gw.gwSerialNum}"   type="hidden">
+						<input id="gwStatus" name="gwStatus" th:value="${gw.gwStatus}"  type="hidden">
+						<input id="gwImg1" name="gwImg1" th:value="${gw.gwImg1}"   type="hidden">
+						<input id="gwImg2" name="gwImg2" th:value="${gw.gwImg2}"   type="hidden">
+						<input id="gwImg3" name="gwImg3" th:value="${gw.gwImg3}"   type="hidden">
+						<input id="gwImg4" name="gwImg4" th:value="${gw.gwImg4}"   type="hidden">
+						<input id="gwImg5" name="gwImg5" th:value="${gw.gwImg5}"   type="hidden">
+						<input id="gwImg6" name="gwImg6" th:value="${gw.gwImg6}"   type="hidden">
+						<input id="gwImg7" name="gwImg7" th:value="${gw.gwImg7}"   type="hidden">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">官网类型：</label>
+							<div class="col-sm-4">
+								<select name="gwType" id="gwType" class="form-control" th:value="${gw.gwType}">
+									<option th:each="type:${typeList}"  th:selected="(${gw.gwType} == ${type})" th:value="${type}" th:text="${type}">教育愿景</option>
+								</select>
+							</div>
+							<label class="col-sm-2 control-label">排序：</label>
+							<div class="col-sm-4">
+								<input id="gwSort" name="gwSort" class="form-control"  type="text" th:value="${gw.gwSort}">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">开始时间：</label>
+							<div class="col-sm-4">
+								<input id="gwChangeStartTime" name="gwChangeStartTime" class="form-control"   th:value="${#dates.format(gw.gwChangeStartTime,'yyyy-MM-dd')}" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})" type="text">
+							</div>
+							<label class="col-sm-2 control-label">结束时间：</label>
+							<div class="col-sm-4">
+								<input id="gwChangeEndTime" name="gwChangeEndTime" class="form-control"   th:value="${#dates.format(gw.gwChangeEndTime,'yyyy-MM-dd')}" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"  type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">标题：</label>
+							<div class="col-sm-4">
+								<input id="gwTitle" name="gwTitle" class="form-control" type="text"  th:value="${gw.gwTitle}" >
+							</div>
+							<label class="col-sm-2 control-label">副标题：</label>
+							<div class="col-sm-4">
+								<input id="gwSubtitle" name="gwSubtitle" class="form-control" type="text"  th:value="${gw.gwSubtitle}" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">点击次数：</label>
+							<div class="col-sm-2">
+								<input id="gwCount" name="gwCount" class="form-control" type="text"   th:value="${gw.gwCount}">
+							</div>
+							<label class="col-sm-2 control-label">SEO关键字：</label>
+							<div class="col-sm-2">
+								<input id="seoKeywords" name="seoKeywords" class="form-control" type="text"   th:value="${gw.seoKeywords}">
+							</div>
+							<label class="col-sm-2 control-label">SEO描述：</label>
+							<div class="col-sm-2">
+								<input id="seoDescription" name="seoDescription" class="form-control" type="text"  th:value="${gw.seoDescription}">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">预览图片：</label>
+							<div class="col-sm-10">
+								<img th:src="${gw.gwImg1}" onclick="openImg(this.src)" id="imgGwImg1" width="150" height="150">
+								<img th:src="${gw.gwImg2}" onclick="openImg(this.src)" src="" id="imgGwImg2" width="150" height="150">
+								<img th:src="${gw.gwImg3}" onclick="openImg(this.src)" src="" id="imgGwImg3" width="150" height="150">
+								<img th:src="${gw.gwImg4}" onclick="openImg(this.src)" src="" id="imgGwImg4" width="150" height="150">
+								<img th:src="${gw.gwImg5}" onclick="openImg(this.src)" src="" id="imgGwImg5" width="150" height="150">
+								<img th:src="${gw.gwImg6}"  onclick="openImg(this.src)" src="" id="imgGwImg6" width="150" height="150">
+								<img th:src="${gw.gwImg7}"  onclick="openImg(this.src)" src="" id="imgGwImg7" width="150" height="150">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">图片：</label>
+							<div class="col-sm-10">
+								<button type="button" class="layui-btn" id="Img1">
+									<i class="fa fa-cloud"></i>上传图片1
+								</button>
+								<button type="button" class="layui-btn" id="Img2">
+									<i class="fa fa-cloud"></i>上传图片2
+								</button>
+								<button type="button" class="layui-btn" id="Img3">
+									<i class="fa fa-cloud"></i>上传图片3
+								</button>
+								<button type="button" class="layui-btn" id="Img4">
+									<i class="fa fa-cloud"></i>上传图片4
+								</button>
+								<button type="button" class="layui-btn" id="Img5">
+									<i class="fa fa-cloud"></i>上传图片5
+								</button>
+								<button type="button" class="layui-btn" id="Img6">
+									<i class="fa fa-cloud"></i>上传图片6
+								</button>
+								<button type="button" class="layui-btn" id="Img7">
+									<i class="fa fa-cloud"></i>上传图片7
+								</button>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">简介：</label>
+							<textarea id="gwMem" name="gwMem" rows="3" cols="115"  th:text="${gw.gwMem}"></textarea>
+						</div>
+						<div class="form-group">
+							<input id="gwContext" name="gwContext" type="hidden" th:value="${gw.gwContext}"> <label
+								class="col-sm-2 control-label">内容：</label>
+							<div class="col-sm-10">
+								<div class="ibox-content no-padding">
+									<div id="editor" style="width:100%;height:340px;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary">提    交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div th:include="include::#footer"></div>
+<script type="text/javascript" src="/js/pc/gw/edit.js"></script>
+
+<script src="/js/plugins/ueditor/ueditor.config.js?v=1.0.0" th:src="@{/js/plugins/ueditor/ueditor.config.js?v=1.0.0}"></script>
+<script src="/js/plugins/ueditor/ueditor.all.js?v=1.0.0" th:src="@{/js/plugins/ueditor/ueditor.all.js?v=1.0.0}"></script>
+<script src="/js/plugins/ueditor/lang/zh-cn/zh-cn.js?v=1.0.0" th:src="@{/js/plugins/ueditor/lang/zh-cn/zh-cn.js?v=1.0.0}"></script>
+
+<script type="text/javascript">
+    var ue = UE.getEditor('editor');
+    UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+    UE.Editor.prototype.getActionUrl = function(action) {
+        console.log(action);
+        if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
+            console.log('/common/sysFile/upload');
+            return '/common/sysFile/uploadImg'; //在这里返回我们实际的上传图片地址
+        } else {
+            console.log(this._bkGetActionUrl.call(this, action));
+            return this._bkGetActionUrl.call(this, action);
+        }
+    }
+</script>
+
+</body>
+</html>

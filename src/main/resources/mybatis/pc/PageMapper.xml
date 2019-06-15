@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.pc.dao.PageDao">
+
+	<select id="get" resultType="com.bootdo.pc.domain.PageDO">
+		select `id`,`page_type`,`title`,pc_subtitle,`seo_keywords`,`seo_description`,`page_context`,`page_gb_pic`,`status`,`createTime`,`createBy`,`updateTime`,`updateBy` from pc_page where id = #{value}
+	</select>
+
+	<select id="getByPageType" resultType="com.bootdo.pc.domain.PageDO">
+		select `id`,`page_type`,`title`,pc_subtitle,`seo_keywords`,`seo_description`,`page_context`,`page_gb_pic`,`status`,`createTime`,`createBy`,`updateTime`,`updateBy` from pc_page where page_type = #{value}
+	</select>
+	<select id="list" resultType="com.bootdo.pc.domain.PageDO">
+		select `id`,`page_type`,pc_subtitle,`title`,`seo_keywords`,`seo_description`,`page_context`,`page_gb_pic`,`status`,`createTime`,`createBy`,`updateTime`,`updateBy` from pc_page
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="pageType != null and pageType != ''"> and page_type = #{pageType} </if>
+			      <if test="title != null and title != ''"> and ( title like concat('%',#{title},'%')  or pc_subtitle like  concat('%',#{title},'%')  ) </if>
+			      <if test="seoKeywords != null and seoKeywords != ''"> and seo_keywords = #{seoKeywords} </if>
+		  		  <if test="seoDescription != null and seoDescription != ''"> and seo_description = #{seoDescription} </if>
+		  		  <if test="pageContext != null and pageContext != ''"> and page_context = #{pageContext} </if>
+		  		  <if test="pageGbPic != null and pageGbPic != ''"> and page_gb_pic = #{pageGbPic} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="createtime != null and createtime != ''"> and createTime = #{createtime} </if>
+		  		  <if test="createby != null and createby != ''"> and createBy = #{createby} </if>
+		  		  <if test="updatetime != null and updatetime != ''"> and updateTime = #{updatetime} </if>
+		  		  <if test="updateby != null and updateby != ''"> and updateBy = #{updateby} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from pc_page
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="pageType != null and pageType != ''"> and page_type = #{pageType} </if>
+		  		  <if test="title != null and title != ''"> and ( title like concat('%',#{title},'%')  or pc_subtitle like  concat('%',#{title},'%')  ) </if>
+			      <if test="seoKeywords != null and seoKeywords != ''"> and seo_keywords = #{seoKeywords} </if>
+		  		  <if test="seoDescription != null and seoDescription != ''"> and seo_description = #{seoDescription} </if>
+		  		  <if test="pageContext != null and pageContext != ''"> and page_context = #{pageContext} </if>
+		  		  <if test="pageGbPic != null and pageGbPic != ''"> and page_gb_pic = #{pageGbPic} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="createtime != null and createtime != ''"> and createTime = #{createtime} </if>
+		  		  <if test="createby != null and createby != ''"> and createBy = #{createby} </if>
+		  		  <if test="updatetime != null and updatetime != ''"> and updateTime = #{updatetime} </if>
+		  		  <if test="updateby != null and updateby != ''"> and updateBy = #{updateby} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.pc.domain.PageDO" useGeneratedKeys="true" keyProperty="id">
+		insert into pc_page
+		(
+			`page_type`, 
+			`title`,
+			 `pc_subtitle`,
+			`seo_keywords`, 
+			`seo_description`, 
+			`page_context`, 
+			`page_gb_pic`, 
+			`status`, 
+			`createTime`, 
+			`createBy`, 
+			`updateTime`, 
+			`updateBy`
+		)
+		values
+		(
+			#{pageType}, 
+			#{title},
+			 #{pcSubtitle},
+			#{seoKeywords}, 
+			#{seoDescription}, 
+			#{pageContext}, 
+			#{pageGbPic}, 
+			#{status}, 
+			#{createtime}, 
+			#{createby}, 
+			#{updatetime}, 
+			#{updateby}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.pc.domain.PageDO">
+		update pc_page 
+		<set>
+			<if test="pageType != null">`page_type` = #{pageType}, </if>
+			<if test="title != null">`title` = #{title}, </if>
+			<if test="pcSubtitle != null">`pc_subtitle` = #{pcSubtitle}, </if>
+			<if test="seoKeywords != null">`seo_keywords` = #{seoKeywords}, </if>
+			<if test="seoDescription != null">`seo_description` = #{seoDescription}, </if>
+			<if test="pageContext != null">`page_context` = #{pageContext}, </if>
+			<if test="pageGbPic != null">`page_gb_pic` = #{pageGbPic}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="createtime != null">`createTime` = #{createtime}, </if>
+			<if test="createby != null">`createBy` = #{createby}, </if>
+			<if test="updatetime != null">`updateTime` = #{updatetime}, </if>
+			<if test="updateby != null">`updateBy` = #{updateby}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from pc_page where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from pc_page where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>
