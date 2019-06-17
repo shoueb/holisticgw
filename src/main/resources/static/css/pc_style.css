@@ -1562,10 +1562,11 @@ span.vision_tran_s {
 .brand_history_list .text_div h2 {
     margin-left: 700px;
     font-size: 30px;
-    line-height: 30px;
+    line-height: 36px;
     padding-top: 50px;
     font-weight: bold;
     color: #fdd000;
+    margin-right: 100px;
 }
 
 .brand_history_list .history_line {
@@ -2518,13 +2519,19 @@ span.vision_tran_s {
      width: 800px;
      height: auto;
 }
-.ine_div6_list .text p{
+.ine_div6_list .text .text-content{
     padding: 50px;
     font-size: 14px;
     text-indent: 28px;
     color: #595757;
 }
-
+.ine_div6_list .text .text-content p{
+    max-height: 212px;
+    overflow: hidden;
+}
+.ine_div6_list .text .text-content p.on{
+    max-height: none;
+}
 .ine_div6_list .text .icon1{
     position:  absolute;
     top: -35px;
@@ -2561,6 +2568,15 @@ span.vision_tran_s {
 .ine_div6_list li:nth-child(even) .icon2{
     right: -40px;
     
+}
+
+.ine_div6_list li  .more-btn{
+    text-align: right;
+    position: absolute;
+    right: 48px;
+    bottom: 20px;
+    color: #1f2c5c;
+    cursor:pointer;
 }
 
 

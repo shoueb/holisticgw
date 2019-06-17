@@ -176,37 +176,38 @@
 				<img src="/images/logo.png" alt="Logo">
 			</div>
 			<ul class="top_nac_ul" id="top_nac_ul">
-				<a href="/">
+				<a href="/" target="_blank">
 					<li th:attr="class=${homepage}">
 						<p th:attr="class=${homepage}"> 首页</p>
 					</li>
 				</a>
-				<a href="/pc/aboutme">
+				<a href="/pc/aboutme" target="_blank">
 					<li th:attr="class=${aboutme}">
 						<p th:attr="class=${aboutme}"> 关于玫苓 </p>
 					</li>
 				</a>
-				<a href="/pc/advantage">
+				<a href="/pc/advantage" target="_blank">
 					<li th:attr="class=${advantage}">
 						<p th:attr="class=${advantage}"> 核心优势 </p>
 					</li>
 				</a>
-				<a href="/pc/course">
+				<a href="/pc/course" target="_blank">
 					<li th:attr="class=${course}">
 						<p th:attr="class=${course}"> 课程体系 </p>
 					</li>
 				</a>
-				<a href="/pc/news">
+				<a href="/pc/news" target="_blank">
 					<li th:attr="class=${news}">
 						<p th:attr="class=${news}"> 新闻动态 </p>
 					</li>
 				</a>
-				<a href="/pc/investment">
+				<a href="/pc/investment" target="_blank">
 					<li th:attr="class=${investment}">
 						<p th:attr="class=${investment}"> 投资合作 </p>
 					</li>
 				</a>
-				<a href="/pc/taiwan">
+				<a href="/pc/taiwan" target="_blank"
+				>
 					<li th:attr="class=${taiwan}">
 						<p th:attr="class=${taiwan}"> 台湾玫苓 </p>
 					</li>
@@ -224,7 +225,7 @@
 	<script>
         window.addEventListener("scroll",function() {
             var top = document.documentElement.scrollTop || document.body.scrollTop;
-            console.log("top:"+top)
+            // console.log("top:"+top)
             if (top>60){
                 $("#back_top").fadeIn();
             }else {

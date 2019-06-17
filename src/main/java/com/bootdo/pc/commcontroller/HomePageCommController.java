@@ -70,7 +70,12 @@ public class HomePageCommController {
         params.put("offset",0);
         params.put("limit",1);
         List list2= gwService.list(params);
+//        System.out.println(list2.get(0));
         request.setAttribute("list2",list2.get(0));
+     /*   if (list2.size()==1){
+
+        }*/
+
 
 
         //核心优势
@@ -97,7 +102,10 @@ public class HomePageCommController {
         params.put("offset",0);
         params.put("limit",1);
         List list4= gwService.list(params);
-        request.setAttribute("list4",list4.get(0));
+        if (list4.size()==1){
+            request.setAttribute("list4",list4.get(0));
+        }
+
 
 
         //课程体系列表
@@ -125,8 +133,9 @@ public class HomePageCommController {
         params.put("offset",0);
         params.put("limit",1);
         List list6= gwService.list(params);
-        request.setAttribute("list6",list6.get(0));
-
+        if (list6.size()==1) {
+            request.setAttribute("list6", list6.get(0));
+        }
 
         //新闻动态
         params.clear();
@@ -137,8 +146,9 @@ public class HomePageCommController {
         params.put("offset",0);
         params.put("limit",1);
         List list7= gwService.list(params);
-        request.setAttribute("list7",list7.get(0));
-
+        if (list7.size()==1) {
+            request.setAttribute("list7", list7.get(0));
+        }
 
         //新闻列表
         params.clear();
@@ -175,7 +185,9 @@ public class HomePageCommController {
         params.put("offset",0);
         params.put("limit",1);
         List list9= gwService.list(params);
-        request.setAttribute("list9",list9.get(0));
+        if (list9.size()==1){
+            request.setAttribute("list9",list9.get(0));
+        }
 
         //事业范围
         params.clear();
@@ -189,7 +201,7 @@ public class HomePageCommController {
         List list10= gwService.list(params);
         request.setAttribute("list10",list10);
 
-        return "pc/wab/homePage";
+        return "pc/web/homePage";
     }
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -42,6 +42,7 @@
 <body>
 <header class="page_top" >
     <div th:include="include :: pc_header"></div>
+
     <div class="page_top_lunbo flexslider" id="slider2">
         <ul class="slides">
             <li th:each="list0:${list0}" class="images" th:style="'background-image:url(' +${list0.gwImg1} + ');'">

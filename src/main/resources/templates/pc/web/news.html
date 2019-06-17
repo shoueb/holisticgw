@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title th:text="${page.title}">新闻</title>
@@ -42,7 +42,8 @@
 							<div><img src="/images/book.png" alt=""></div>
 							<p>阅读全文</p>
 						</div>
-						<img th:src="${news.gwImg1}" alt="" style="width: auto;height: auto;max-width: 100%;max-height: 100%;">
+						<!--max-width: 100%;max-height: 100%;-->
+						<img th:src="${news.gwImg1}" alt="" style="width: 100%;height: auto;">
 					</a>
 				</div>
 				<a th:href="'/pc/details?id='+${news.id}">
