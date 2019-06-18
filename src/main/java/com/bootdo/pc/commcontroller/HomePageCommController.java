@@ -156,7 +156,7 @@ public class HomePageCommController {
         //新闻列表
         params.put("pcPageId",pageDO4.getId());
         params.put("gwStatus","1");
-        params.put("sort","createTime");
+        params.put("sort","gw_change_start_time");
         params.put("order","desc");
         params.put("offset",0);
         params.put("limit",8);
