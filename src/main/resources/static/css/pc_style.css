@@ -793,7 +793,17 @@
     width: 100%;
 }
 
+
 .con_inf_other .logo_div {
+    float: left;
+    width: 293px;
+    background-image: url(../images/shu.png);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    height: 200px;
+}
+
+.promotion  .con_inf_other .logo_div {
     float: left;
     width: 293px;
     background-image: url(../images/shu.png);
@@ -808,6 +818,16 @@
 }
 
 .con_inf_other .add_ul {
+    float: left;
+    background-image: url(../images/shu.png);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    width: 406px;
+    padding-left: 60px;
+    height: 200px;
+}
+
+.promotion  .con_inf_other .add_ul {
     float: left;
     background-image: url(../images/shu.png);
     background-repeat: no-repeat;
@@ -839,8 +859,16 @@
     color: #fdd000;
     font-weight: bold;
 }
-
 .con_inf_other .erweima {
+    float: left;
+    padding-left: 60px;
+    padding-right: 60px;
+    height: 140px;
+    margin-top: 46px;
+}
+
+
+.promotion .con_inf_other .erweima {
     float: left;
     padding-left: 60px;
     padding-right: 60px;
@@ -851,7 +879,7 @@
     background-position: 100% 25%;
 }
 
-.con_inf_other .risk-warning{
+.promotion .con_inf_other .risk-warning{
     float: left;
     margin-top: 40px;
     font-size: 40px;

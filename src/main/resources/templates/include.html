@@ -1,109 +1,115 @@
 <head th:fragment="header">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title></title>
-	<meta name="keywords" content="">
-	<meta name="description" content="">
-	<link rel="shortcut icon" href="favicon.ico">
-	<link href="css/bootstrap.min.css?v=3.3.6"
-		  th:href="@{/css/bootstrap.min.css?v=3.3.6}" rel="stylesheet">
-	<link href="/css/font-awesome.css?v=4.4.0"
-		  th:href="@{/css/font-awesome.css?v=4.4.0}" rel="stylesheet">
-	<link href="/css/plugins/bootstrap-table/bootstrap-table.min.css"
-		  th:href="@{/css/plugins/bootstrap-table/bootstrap-table.min.css}"
-		  rel="stylesheet">
-	<link href="/css/plugins/jsTree/style.min.css" rel="stylesheet">
-	<link href="/css/plugins/jqTreeGrid/jquery.treegrid.css"
-		  rel="stylesheet">
-	<!--summernote css -->
-	<link href="/css/plugins/summernote/summernote-0.8.8.css"
-		  rel="stylesheet">
-	<link href="css/animate.css" th:href="@{/css/animate.css}"
-		  rel="stylesheet">
-	<link href="/css/plugins/chosen/chosen.css" rel="stylesheet">
-	<link href="/css/style.css?v=4.1.0" th:href="@{/css/style.css?v=4.1.0}"
-		  rel="stylesheet">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title></title>
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="favicon.ico" rel="shortcut icon">
+    <link href="css/bootstrap.min.css?v=3.3.6"
+          rel="stylesheet" th:href="@{/css/bootstrap.min.css?v=3.3.6}">
+    <link href="/css/font-awesome.css?v=4.4.0"
+          rel="stylesheet" th:href="@{/css/font-awesome.css?v=4.4.0}">
+    <link href="/css/plugins/bootstrap-table/bootstrap-table.min.css"
+          rel="stylesheet"
+          th:href="@{/css/plugins/bootstrap-table/bootstrap-table.min.css}">
+    <link href="/css/plugins/jsTree/style.min.css" rel="stylesheet">
+    <link href="/css/plugins/jqTreeGrid/jquery.treegrid.css"
+          rel="stylesheet">
+    <!--summernote css -->
+    <link href="/css/plugins/summernote/summernote-0.8.8.css"
+          rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet"
+          th:href="@{/css/animate.css}">
+    <link href="/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet"
+          th:href="@{/css/style.css?v=4.1.0}">
 </head>
 
-<footer id="pc_footer"  th:fragment="pc_footer">
-	<!--免费试听预约-->
-	<div class="sign_div">
-		<div class="sign_from">
-			<span>免费试听课预约</span>
-			<input type="text" placeholder="宝贝名称" id="babyName" name="babyName">
-			<input type="text" placeholder="宝贝年龄" id="babyAge" name="babyAge">
-			<input type="text" placeholder="联系手机" id="tel" name="tel">
-			<input type="text" placeholder="微信号(选填)"  id="wxNum" name="wxNum">
-			<button id="appoint" onclick="appoint()">提交预约</button>
-		</div>
-	</div>
-	<div class="con_inf">
-		<div class="con_inf_div">
-			<!--<div class="tel">
-				<img src="/images/tel.png" alt="">
-			</div>-->
-			<div class="con_inf_other">
-				<div class="logo_div">
-					<img src="/images/logo2.png" alt="logo">
-				</div>
-				<!--<ul class="add_ul">
-					<li>
-						<div class="add_icon">
-							<img src="/images/add.png" alt="">
-						</div>
-						<div class="add_t">
-							<p>台湾区总部</p>
-							<p>台湾新北市永和区中山路一段7号7楼</p>
-						</div>
-					</li>
-					<li>
-						<div class="add_icon">
-							<img src="/images/add.png" alt="">
-						</div>
-						<div class="add_t">
-							<p>大陆区总部</p>
-							<p>厦门市思明区松岳路10号悦享中心B塔10F</p>
-						</div>
-					</li>
-				</ul>-->
-				<div class="erweima"><img src="/images/erweima.png" alt="二维码"></div>
-				<div class="risk-warning">
-					投资有风险<br>
-					创业需谨慎
-				</div>
-			</div>
-		</div>
-	</div>
-	<p class="copyright">
-		Holistic 玫苓全人音乐| 北京市渠道网络技术开发有限公司 版权所有 Copyrght©2016-2020
-	</p>
-	<script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
-	<script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
-	<script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
-	<script type="text/javascript" src="/js/jquery.countup.min.js"></script>
-	<script src="/js/plugins/layer/layer.js"></script>
-	<script>
-        if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+<footer id="pc_footer" th:fragment="pc_footer">
+    <!--免费试听预约-->
+    <div class="sign_div" id="singnDiv" style="position: fixed;bottom: 0;">
+        <div class="sign_from">
+            <span>免费试听课预约</span>
+            <input type="text" placeholder="宝贝名称" id="babyName" name="babyName">
+            <input type="text" placeholder="宝贝年龄" id="babyAge" name="babyAge">
+            <input type="text" placeholder="联系手机" id="tel" name="tel">
+            <input type="text" placeholder="微信号(选填)" id="wxNum" name="wxNum">
+            <button id="appoint" onclick="appoint()">提交预约</button>
+        </div>
+    </div>
+    <div class="con_inf">
+        <div class="con_inf_div">
+            <div class="tel">
+                <img src="/images/tel.png" alt="">
+            </div>
+            <div class="con_inf_other">
+                <div class="logo_div">
+                    <img src="/images/logo2.png" alt="logo">
+                </div>
+                <ul class="add_ul">
+                    <li>
+                        <div class="add_icon">
+                            <img src="/images/add.png" alt="">
+                        </div>
+                        <div class="add_t">
+                            <p>台湾区总部</p>
+                            <p>台湾新北市永和区中山路一段7号7楼</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="add_icon">
+                            <img src="/images/add.png" alt="">
+                        </div>
+                        <div class="add_t">
+                            <p>大陆区总部</p>
+                            <p>厦门市思明区松岳路10号悦享中心B塔10F</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="erweima"><img src="/images/erweima.png" alt="二维码"></div>
+                <!--<div class="risk-warning">
+                    投资有风险<br>
+                    创业需谨慎
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <p class="copyright">
+        Holistic 玫苓全人音乐| 北京市渠道网络技术开发有限公司 版权所有 Copyrght©2016-2020
+    </p>
+    <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.countup.min.js"></script>
+    <script src="/js/plugins/layer/layer.js"></script>
+    <script>
+        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
             window.location.href = "/wap/index";
         }
+
         function appoint() {
             $.ajax({
                 type: "POST",
                 url: "/pc/appiont",
-                async : false,
-                data: {"babyName":$("#babyName").val(),"babyAge":$("#babyAge").val(),"tel":$("#tel").val(),"wxNum":$("#wxNum").val()},
+                async: false,
+                data: {
+                    "babyName": $("#babyName").val(),
+                    "babyAge": $("#babyAge").val(),
+                    "tel": $("#tel").val(),
+                    "wxNum": $("#wxNum").val()
+                },
                 success: function (r) {
-                    if(r.code==0){
+                    if (r.code == 0) {
                         $("#babyName").val("");
                         $("#babyAge").val("");
                         $("#tel").val("");
                         $("#wxNum").val("");
                         layer.msg("您的预约已经提交，我们的工作人员会在第一时间联系您");
-					}else{
+                    } else {
                         layer.msg(r.msg);
-					}
+                    }
                 },
-				error : function(request) {
+                error: function (request) {
                     parent.layer.alert("系统错误");
                 }
             });
@@ -114,290 +120,317 @@
             $.ajax({
                 type: "POST",
                 url: "/pc/addInvestment",
-                async : false,
-                data: {"name":$("#name").val(),"city":$("#city").val(),"tel":$("#tel").val()},
+                async: false,
+                data: {"name": $("#name").val(), "city": $("#city").val(), "tel": $("#tel").val()},
                 success: function (r) {
-                    if(r.code==0){
+                    if (r.code == 0) {
                         $("#name").val("");
                         $("#city").val("");
                         $("#tel").val("");
                         layer.msg("您的投资意向已经提交，我们的工作人员会在第一时间联系您");
-                    }else{
+                    } else {
                         layer.msg(r.msg);
                     }
                 },
-                error : function(request) {
+                error: function (request) {
                     parent.layer.alert("系统错误");
                 }
             });
             return false;
         }
-	</script>
-	<script>
+    </script>
+    <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?50cf7c44e57f5ff07ab77ee40eb5864d";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
-	</script>
+    </script>
+    <!--底部浮动-->
+    <script>
+        window.onscroll = function () {
+            /*网页可见域高*/
+            var docHeight = document.body.offsetHeight;
+            /*网页被卷去的高*/
+            var docScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            /*屏幕可用工作区高度*/
+            var screenAvailH = window.screen.availHeight;
+
+            console.log((docScrollTop + screenAvailH+200) > docHeight);
+            if ((docScrollTop + screenAvailH+200) > docHeight) {
+                $('#singnDiv').removeAttr("style")
+            }else {
+                $('#singnDiv').css({'position': 'fixed','bottom': '0'})
+            }
+        }
+    </script>
 </footer>
 <div id="footer" th:fragment="footer">
-	<script src="/js/jquery.min.js?v=2.1.4"></script>
-	<script src="/js/My97DatePicker/WdatePicker.js?v=2.1.4"></script>
-	<script src="/js/bootstrap.min.js?v=3.3.6"></script>
-	<script src="/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
-	<script src="/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
-	<script src="/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
-	<script src="/js/plugins/validate/jquery.validate.min.js"></script>
-	<script src="/js/plugins/validate/messages_zh.min.js"></script>
-	<script src="/js/plugins/jsTree/jstree.min.js"></script>
-	<script src="/js/plugins/jqTreeGrid/jquery.treegrid.min.js"></script>
-	<script src="/js/plugins/jqTreeGrid/jquery.treegrid.extension.js"></script>
-	<script src="/js/plugins/jqTreeGrid/jquery.treegrid.bootstrap3.js"></script>
-	<script src="/js/plugins/chosen/chosen.jquery.js"></script>
-	<script src="/js/plugins/layer/layer.js"></script>
-	<script src="/js/content.js?v=1.0.0"></script>
-	<!--summernote-->
-	<script src="/js/plugins/summernote/summernote.js"></script>
-	<script src="/js/plugins/summernote/summernote-zh-CN.min.js"></script>
-	<script src="/js/ajax-util.js"></script>
-	<script src="/js/utilis.js"></script>
-	<script src="/js/plugins/layer/layer.min.js"></script>
-	<script src="/js/layui.js"></script>
+    <script src="/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/js/My97DatePicker/WdatePicker.js?v=2.1.4"></script>
+    <script src="/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="/js/plugins/validate/messages_zh.min.js"></script>
+    <script src="/js/plugins/jsTree/jstree.min.js"></script>
+    <script src="/js/plugins/jqTreeGrid/jquery.treegrid.min.js"></script>
+    <script src="/js/plugins/jqTreeGrid/jquery.treegrid.extension.js"></script>
+    <script src="/js/plugins/jqTreeGrid/jquery.treegrid.bootstrap3.js"></script>
+    <script src="/js/plugins/chosen/chosen.jquery.js"></script>
+    <script src="/js/plugins/layer/layer.js"></script>
+    <script src="/js/content.js?v=1.0.0"></script>
+    <!--summernote-->
+    <script src="/js/plugins/summernote/summernote.js"></script>
+    <script src="/js/plugins/summernote/summernote-zh-CN.min.js"></script>
+    <script src="/js/ajax-util.js"></script>
+    <script src="/js/utilis.js"></script>
+    <script src="/js/plugins/layer/layer.min.js"></script>
+    <script src="/js/layui.js"></script>
 
 </div>
 
-<div  th:fragment="pc_header">
-	<a name="top"></a>
-	<nav class="top_nac">
-		<div class="top_nav_div">
-			<div class="top_nav_logo">
-				<div class="p_mul" id="p_mul">
-					<img src="/images/mulist.png" alt="">
-				</div>
-				<img src="/images/logo.png" alt="Logo">
-			</div>
-			<ul class="top_nac_ul" id="top_nac_ul">
-				<a href="/" target="_blank">
-					<li th:attr="class=${homepage}">
-						<p th:attr="class=${homepage}"> 首页</p>
-					</li>
-				</a>
-				<a href="/pc/aboutme" target="_blank">
-					<li th:attr="class=${aboutme}">
-						<p th:attr="class=${aboutme}"> 关于玫苓 </p>
-					</li>
-				</a>
-				<a href="/pc/advantage" target="_blank">
-					<li th:attr="class=${advantage}">
-						<p th:attr="class=${advantage}"> 核心优势 </p>
-					</li>
-				</a>
-				<a href="/pc/course" target="_blank">
-					<li th:attr="class=${course}">
-						<p th:attr="class=${course}"> 课程体系 </p>
-					</li>
-				</a>
-				<a href="/pc/news" target="_blank">
-					<li th:attr="class=${news}">
-						<p th:attr="class=${news}"> 新闻动态 </p>
-					</li>
-				</a>
-				<a href="/pc/investment" target="_blank">
-					<li th:attr="class=${investment}">
-						<p th:attr="class=${investment}"> 投资合作 </p>
-					</li>
-				</a>
-				<a href="/pc/taiwan" target="_blank"
-				>
-					<li th:attr="class=${taiwan}">
-						<p th:attr="class=${taiwan}"> 台湾玫苓 </p>
-					</li>
-				</a>
-			</ul>
-		</div>
-	</nav>
-	<aside class="aside">
-		<div class="back_top" id="back_top" style="display: none">
-			<a href="#top">
-				<img src="/images/top.png" alt="">
-			</a>
-		</div>
-	</aside>
-	<script>
-        window.addEventListener("scroll",function() {
+<div th:fragment="pc_header">
+    <a name="top"></a>
+    <nav class="top_nac">
+        <div class="top_nav_div">
+            <div class="top_nav_logo">
+                <div class="p_mul" id="p_mul">
+                    <img src="/images/mulist.png" alt="">
+                </div>
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <ul class="top_nac_ul" id="top_nac_ul">
+                <a href="/" target="_blank">
+                    <li th:attr="class=${homepage}">
+                        <p th:attr="class=${homepage}"> 首页</p>
+                    </li>
+                </a>
+                <a href="/pc/aboutme" target="_blank">
+                    <li th:attr="class=${aboutme}">
+                        <p th:attr="class=${aboutme}"> 关于玫苓 </p>
+                    </li>
+                </a>
+                <a href="/pc/advantage" target="_blank">
+                    <li th:attr="class=${advantage}">
+                        <p th:attr="class=${advantage}"> 核心优势 </p>
+                    </li>
+                </a>
+                <a href="/pc/course" target="_blank">
+                    <li th:attr="class=${course}">
+                        <p th:attr="class=${course}"> 课程体系 </p>
+                    </li>
+                </a>
+                <a href="/pc/news" target="_blank">
+                    <li th:attr="class=${news}">
+                        <p th:attr="class=${news}"> 新闻动态 </p>
+                    </li>
+                </a>
+                <a href="/pc/investment" target="_blank">
+                    <li th:attr="class=${investment}">
+                        <p th:attr="class=${investment}"> 投资合作 </p>
+                    </li>
+                </a>
+                <a href="/pc/taiwan" target="_blank"
+                >
+                    <li th:attr="class=${taiwan}">
+                        <p th:attr="class=${taiwan}"> 台湾玫苓 </p>
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+    <aside class="aside">
+        <div class="back_top" id="back_top" style="display: none">
+            <a href="#top">
+                <img src="/images/top.png" alt="">
+            </a>
+        </div>
+    </aside>
+    <script>
+        window.addEventListener("scroll", function () {
             var top = document.documentElement.scrollTop || document.body.scrollTop;
             // console.log("top:"+top)
-            if (top>60){
+            if (top > 60) {
                 $("#back_top").fadeIn();
-            }else {
+            } else {
                 $("#back_top").fadeOut();
             }
         })
-	</script>
+    </script>
 </div>
 
-<nav class="top_nac" id="top_nac_ul"  th:fragment="wap_header">
-	<script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
-	<script type="text/javascript" src="/js/jquery.countup.min.js"></script>
-	<ul class="top_nac_ul" >
-		<a href="/wap/index">
-			<li th:attr="class=${homepage}">
-				<p th:attr="class=${homepage}"> 首页</p>
-				<p th:attr="class=${homepage}"> Home </p>
-			</li>
-		</a>
-		<a href="/wap/aboutme">
-			<li th:attr="class=${aboutme}">
-				<p th:attr="class=${aboutme}"> 关于玫苓 </p>
-				<p th:attr="class=${aboutme}"> About us </p>
-			</li>
-		</a>
-		<a href="/wap/advantage">
-			<li th:attr="class=${advantage}">
-				<p th:attr="class=${advantage}"> 核心优势 </p>
-				<p  th:attr="class=${advantage}"> Advantage </p>
-			</li>
-		</a>
-		<a href="/wap/course">
-			<li th:attr="class=${course}">
-				<p th:attr="class=${course}"> 课程体系 </p>
-				<p th:attr="class=${course}"> Course </p>
-			</li>
-		</a>
-		<a href="/wap/news">
-			<li th:attr="class=${news}">
-				<p th:attr="class=${news}"> 新闻动态 </p>
-				<p th:attr="class=${news}"> News </p>
-			</li>
-		</a>
-		<a href="/wap/investment">
-			<li th:attr="class=${investment}">
-				<p th:attr="class=${investment}"> 投资合作 </p>
-				<p th:attr="class=${investment}"> Investment </p>
-			</li>
-		</a>
-		<a href="/wap/taiwan">
-			<li th:attr="class=${taiwan}">
-				<p th:attr="class=${taiwan}"> 台湾玫苓 </p>
-				<p th:attr="class=${taiwan}"> Meiling tw </p>
-			</li>
-		</a>
-	</ul>
-	</nav>
-<footer   th:fragment="wap_footer">
-	<!--免费试听预约-->
-	<div class="sign_div">
-		<ul class="sign_from2" id="sign_from2" style="display: none">
-			<li class="t">免费试听课预约</li>
-			<li><input type="text" placeholder="宝贝名称" id="babyName" name="babyName"></li>
-			<li><input type="text" placeholder="宝贝年龄" id="babyAge" name="babyAge"></li>
-			<li><input type="text" placeholder="联系手机" id="tel" name="tel"></li>
-			<li><input type="text" placeholder="微信号(选填)"  id="wxNum" name="wxNum"></li>
-			<li><button id="appoint" onclick="appoint()">提交预约</button></li>
-		</ul>
-		<div class="sign_from" id="sign_from">
-			<span>免费<br/>试听课预约</span>
+<nav class="top_nac" id="top_nac_ul" th:fragment="wap_header">
+    <script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.countup.min.js"></script>
+    <ul class="top_nac_ul">
+        <a href="/wap/index">
+            <li th:attr="class=${homepage}">
+                <p th:attr="class=${homepage}"> 首页</p>
+                <p th:attr="class=${homepage}"> Home </p>
+            </li>
+        </a>
+        <a href="/wap/aboutme">
+            <li th:attr="class=${aboutme}">
+                <p th:attr="class=${aboutme}"> 关于玫苓 </p>
+                <p th:attr="class=${aboutme}"> About us </p>
+            </li>
+        </a>
+        <a href="/wap/advantage">
+            <li th:attr="class=${advantage}">
+                <p th:attr="class=${advantage}"> 核心优势 </p>
+                <p th:attr="class=${advantage}"> Advantage </p>
+            </li>
+        </a>
+        <a href="/wap/course">
+            <li th:attr="class=${course}">
+                <p th:attr="class=${course}"> 课程体系 </p>
+                <p th:attr="class=${course}"> Course </p>
+            </li>
+        </a>
+        <a href="/wap/news">
+            <li th:attr="class=${news}">
+                <p th:attr="class=${news}"> 新闻动态 </p>
+                <p th:attr="class=${news}"> News </p>
+            </li>
+        </a>
+        <a href="/wap/investment">
+            <li th:attr="class=${investment}">
+                <p th:attr="class=${investment}"> 投资合作 </p>
+                <p th:attr="class=${investment}"> Investment </p>
+            </li>
+        </a>
+        <a href="/wap/taiwan">
+            <li th:attr="class=${taiwan}">
+                <p th:attr="class=${taiwan}"> 台湾玫苓 </p>
+                <p th:attr="class=${taiwan}"> Meiling tw </p>
+            </li>
+        </a>
+    </ul>
+</nav>
+<footer th:fragment="wap_footer">
+    <!--免费试听预约-->
+    <div class="sign_div">
+        <ul class="sign_from2" id="sign_from2" style="display: none">
+            <li class="t">免费试听课预约</li>
+            <li><input type="text" placeholder="宝贝名称" id="babyName" name="babyName"></li>
+            <li><input type="text" placeholder="宝贝年龄" id="babyAge" name="babyAge"></li>
+            <li><input type="text" placeholder="联系手机" id="tel" name="tel"></li>
+            <li><input type="text" placeholder="微信号(选填)" id="wxNum" name="wxNum"></li>
+            <li>
+                <button id="appoint" onclick="appoint()">提交预约</button>
+            </li>
+        </ul>
+        <div class="sign_from" id="sign_from">
+            <span>免费<br/>试听课预约</span>
 
-			<button id="click_yy">点击预约</button>
-		</div>
-	</div>
-	<div class="con_inf">
-		<div class="con_inf_div">
-			<!--<div class="tel">
-				<img src="/images/tel.png" alt="">
-			</div>-->
-			<div class="con_inf_other">
-				<div class="logo_div">
-					<img src="/images/logo2.png" alt="logo">
-				</div>
-				<ul class="add_ul">
-					<li>
-						<div class="add_icon">
-							<img src="/images/add.png" alt="">
-						</div>
-						<div class="add_t">
-							<p>台湾区总部</p>
-							<p>台湾新北市永和区中山路一段7号7楼</p>
-						</div>
-					</li>
-					<li>
-						<div class="add_icon">
-							<img src="/images/add.png" alt="">
-						</div>
-						<div class="add_t">
-							<p>大陆区总部</p>
-							<p>厦门市思明区松岳路10号悦享中心B塔10F</p>
-						</div>
-					</li>
-				</ul>
-				<div class="erweima"><img src="/images/erweima.png" alt="二维码"></div>
-			</div>
-		</div>
-	</div>
-	<p class="copyright">
-		Holistic 玫苓全人音乐|玫苓全人音乐教学系统
-	</p>
-	<p class="copyright">
-		版权所有 Copyrght©2016-2020
-	</p>
-	<script src="/js/plugins/layer/layer.js"></script>
-	<script>
+            <button id="click_yy">点击预约</button>
+        </div>
+    </div>
+    <div class="con_inf">
+        <div class="con_inf_div">
+            <!--<div class="tel">
+                <img src="/images/tel.png" alt="">
+            </div>-->
+            <div class="con_inf_other">
+                <div class="logo_div">
+                    <img src="/images/logo2.png" alt="logo">
+                </div>
+                <ul class="add_ul">
+                    <li>
+                        <div class="add_icon">
+                            <img src="/images/add.png" alt="">
+                        </div>
+                        <div class="add_t">
+                            <p>台湾区总部</p>
+                            <p>台湾新北市永和区中山路一段7号7楼</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="add_icon">
+                            <img src="/images/add.png" alt="">
+                        </div>
+                        <div class="add_t">
+                            <p>大陆区总部</p>
+                            <p>厦门市思明区松岳路10号悦享中心B塔10F</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="erweima"><img src="/images/erweima.png" alt="二维码"></div>
+            </div>
+        </div>
+    </div>
+    <p class="copyright">
+        Holistic 玫苓全人音乐|玫苓全人音乐教学系统
+    </p>
+    <p class="copyright">
+        版权所有 Copyrght©2016-2020
+    </p>
+    <script src="/js/plugins/layer/layer.js"></script>
+    <script>
         function appoint() {
             $.ajax({
                 type: "POST",
                 url: "/pc/appiont",
-                async : false,
-                data: {"fromChannel":"手机","babyName":$("#babyName").val(),"babyAge":$("#babyAge").val(),"tel":$("#tel").val(),"wxNum":$("#wxNum").val()},
+                async: false,
+                data: {
+                    "fromChannel": "手机",
+                    "babyName": $("#babyName").val(),
+                    "babyAge": $("#babyAge").val(),
+                    "tel": $("#tel").val(),
+                    "wxNum": $("#wxNum").val()
+                },
                 success: function (r) {
-                    if(r.code==0){
+                    if (r.code == 0) {
                         $("#babyName").val("");
                         $("#babyAge").val("");
                         $("#tel").val("");
                         $("#wxNum").val("");
                         layer.msg("您的预约已经提交，我们的工作人员会在第一时间联系您");
-                    }else{
+                    } else {
                         layer.msg(r.msg);
                     }
                 },
-                error : function(request) {
+                error: function (request) {
                     parent.layer.alert("系统错误");
                 }
             });
             return false;
         }
+
         function addInvestment() {
             $.ajax({
                 type: "POST",
                 url: "/pc/addInvestment",
-                async : false,
-                data: {"name":$("#name").val(),"city":$("#city").val(),"tel":$("#tel").val()},
+                async: false,
+                data: {"name": $("#name").val(), "city": $("#city").val(), "tel": $("#tel").val()},
                 success: function (r) {
-                    if(r.code==0){
+                    if (r.code == 0) {
                         $("#name").val("");
                         $("#city").val("");
                         $("#tel").val("");
                         layer.msg("您的投资意向已经提交，我们的工作人员会在第一时间联系您");
-                    }else{
+                    } else {
                         layer.msg(r.msg);
                     }
                 },
-                error : function(request) {
+                error: function (request) {
                     parent.layer.alert("系统错误");
                 }
             });
             return false;
         }
-	</script>
-	<script>
+    </script>
+    <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?50cf7c44e57f5ff07ab77ee40eb5864d";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
-	</script>
+    </script>
 </footer>
