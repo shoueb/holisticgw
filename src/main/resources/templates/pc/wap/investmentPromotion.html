@@ -23,424 +23,369 @@
 </head>
 
 <body style="background-color: #fff;">
-    <header class="newspage_top promotion" th:style="'background-image:url(' +${page.pageGbPic} + ');'">
-        <!--<div class="top_nav_div">
-            <div class="top_nav_logo">
-                <img src="/images/logo.png" alt="Logo">
-            </div>
-            <div class="p_mul" id="p_mul">
-                 <img src="/images/phone_navIcon.png" alt="">
-            </div>
-        </div>-->
-        <!--<nav id="top_nac_ul"  class="top_nac" th:include="include :: wap_header"></nav>-->
-        <div class="top_title promotion" >
-            <h1>投资合作</h1>
-            <p class="cross_bar">
-                <span class="left"></span>
-                <span class="text">Investment</span>
-                <span class="right"></span>
-            </p>
-        </div>
-    </header>
-    <main>
-        <!--2.0教育理念-->
-        <div class="ine_div3">
-            <div class="img">
-                <img th:src="${inveList1.gwImg2}" alt="">
-            </div>
+<header class="newspage_top promotion" th:style="'background-image:url(' +${page.pageGbPic} + ');'">
 
-            <div class="text">
-                <h2 th:utext="${inveList1.gwTitle}">
-                    国际先进的<span>2.0</span>全人教育理念<br>打破教育市场同质化
-                </h2>
-                <div class="ine_div2">
-                    <div class="text">
-                        拒绝教育模式<span>同质化</span><br> 保障投资收益
-                    </div>
-                </div>
-                <div th:utext="${inveList1.gwContext}">
-                </div>
-            </div>
-        </div>
-        <div class=" ine_div5">
-           <div class="img_div">
-               <img src="/images/phone_Brand_Honor_img3.png" alt="">
-           </div>
-            <div class="team_div">
-                <div class="chalo_div">
-                    <h3 th:text="${teamTop.gwTitle}">
-                        Holistic首席顾问
-                    </h3>
-                    <p class="designation" th:text="${teamTop.gwSubtitle}">
-                        国际打击乐大师
-                    </p>
-                    <p class="eng" th:text="${teamTop.gwMem}">
-                        Chalo Eduardo
-                    </p>
-                </div>
-                <div class="team_list_div">
-                    <ul class="team_list">
-                        <li th:each="teamList:${teamList}">
-                            <div class="img_div" ><img th:src="${teamList.gwImg1}" alt=""></div>
-                            <h3 class="name" th:text="${teamList.gwSubtitle}">
-                                C.G. Ryche
-                            </h3>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-           
+    <div class="top_title promotion">
+        <h1>投资合作</h1>
+        <p class="cross_bar">
+            <span class="left"></span>
+            <span class="text">Investment</span>
+            <span class="right"></span>
+        </p>
+    </div>
+</header>
+<main>
+    <!--2.0教育理念-->
+    <div class="ine_div3">
+        <div class="img">
+            <img th:src="${inveList1.gwImg2}" alt="">
         </div>
 
-        <div class="ine_div4" th:style="'background-image:url(' +${inveTitle1.gwImg1} + ');'">
-            <div  th:utext="${inveTitle1.gwContext}">
-
+        <div class="text">
+            <h2 th:utext="${inveList1.gwTitle}">
+                国际先进的<span>2.0</span>全人教育理念<br>打破教育市场同质化
+            </h2>
+            <div class="ine_div2">
+                <div class="text">
+                    拒绝教育模式<span>同质化</span><br> 保障投资收益
+                </div>
+            </div>
+            <div th:utext="${inveList1.gwContext}">
             </div>
         </div>
-        <!--我们的服务-->
-        <div class="our_services">
-            <div class="title_h1">
-                <h1 th:text="${inveTitle1.gwTitle}">我们的服务</h1>
-                <p th:text="${inveTitle1.gwSubtitle}">Our Services</p>
-                <div><span></span></div>
+    </div>
+    <div class=" ine_div5">
+        <div class="img_div">
+            <img src="/images/phone_Brand_Honor_img3.png" alt="">
+        </div>
+        <div class="team_div">
+            <div class="chalo_div">
+                <h3 th:text="${teamTop.gwTitle}">
+                    Holistic首席顾问
+                </h3>
+                <p class="designation" th:text="${teamTop.gwSubtitle}">
+                    国际打击乐大师
+                </p>
+                <p class="eng" th:text="${teamTop.gwMem}">
+                    Chalo Eduardo
+                </p>
             </div>
-            <div class="our_services_div1">
-                <ul class="our_services_list1">
-                    <li th:each="inveList2:${inveList2}">
-                        <div class="img"><img  th:src="${inveList2.gwImg1}" alt=""></div>
-                        <div th:utext="${inveList2.gwTitle}">
-                            <p>
-                                专业选址扶持 <br>省出
-                                <span>加盟费</span>
-                            </p>
-                        </div>
+            <div class="team_list_div">
+                <ul class="team_list">
+                    <li th:each="teamList:${teamList}">
+                        <div class="img_div" ><img th:src="${teamList.gwImg1}" alt=""></div>
+                        <h3 class="name" th:text="${teamList.gwSubtitle}">
+                            C.G. Ryche
+                        </h3>
                     </li>
                 </ul>
             </div>
-
-            <div class="our_services_div3">
-                <h2>
-                    <span>保姆式</span>经营扶持<br/>为投资保驾护航
-                </h2>
-
-                <div class="list_div">
-                    <ul>
-                        <li th:each="inveList4:${inveList4}">
-                            <div th:text="${inveList4.gwSubtitle}">01</div>
-                            <h3 th:text="${inveList4.gwTitle}">区域独家</h3>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
 
-        <!--我们的优势-->
-        <div class="our_advantages">
-            <div class="title_h1">
-                <h1 th:text="${inveTitle3.gwTitle}">我们的优势</h1>
-                <p th:text="${inveTitle3.gwSubtitle}">Our Advantages</p>
-                <div><span></span></div>
+    </div>
+
+    <div class="ine_div4" th:style="'background-image:url(' +${inveTitle1.gwImg1} + ');'">
+        <div  th:utext="${inveTitle1.gwContext}">
+
+        </div>
+    </div>
+    <!--我们的服务-->
+    <div class="our_services">
+        <div class="title_h1">
+            <h1 th:text="${inveTitle1.gwTitle}">我们的服务</h1>
+            <p th:text="${inveTitle1.gwSubtitle}">Our Services</p>
+            <div><span></span></div>
+        </div>
+        <div class="our_services_div1">
+            <ul class="our_services_list1">
+                <li th:each="inveList2:${inveList2}">
+                    <div class="img"><img  th:src="${inveList2.gwImg1}" alt=""></div>
+                    <div th:utext="${inveList2.gwTitle}">
+                        <p>
+                            专业选址扶持 <br>省出
+                            <span>加盟费</span>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="our_services_div3">
+            <h2>
+                <span>保姆式</span>经营扶持<br/>为投资保驾护航
+            </h2>
+
+            <div class="list_div">
+                <ul>
+                    <li th:each="inveList4:${inveList4}">
+                        <div th:text="${inveList4.gwSubtitle}">01</div>
+                        <h3 th:text="${inveList4.gwTitle}">区域独家</h3>
+                    </li>
+                </ul>
             </div>
-            <div class="our_adv_img">
-                <img th:src="${inveTitle4.gwImg1}" alt="">
+        </div>
+
+    </div>
+
+    <!--我们的优势-->
+    <div class="our_advantages">
+        <div class="title_h1">
+            <h1 th:text="${inveTitle3.gwTitle}">我们的优势</h1>
+            <p th:text="${inveTitle3.gwSubtitle}">Our Advantages</p>
+            <div><span></span></div>
+        </div>
+        <div class="our_adv_img">
+            <img th:src="${inveTitle4.gwImg1}" alt="">
+        </div>
+        <div class="our_adv_div1">
+            <div class="text">
+                <h2 class="our_adv_h2">
+                    <div class="num" th:utext="${inveTitle4.gwTitle}">
+                        01
+                    </div>
+                    <div class="t" th:utext="${inveTitle4.gwSubtitle}">
+                        优选国际品牌 <br> 赢在起点
+                    </div>
+                </h2>
+                <div class="text2" th:utext="${inveTitle4.gwContext}">
+                    <p>Holistic玫苓全人音乐教学系统创始于西年1992年，是集课程开发与音乐教学设计于一体，是亚洲地区唯一通过英国权威ITA国际组织ISO9001认证，汇聚音乐美学与完整人格兼具的国际优质教学系统。目前教学足迹已遍及台湾、美国、日本、新加坡、马来西亚、维也纳等多个国家及地区。</p>
+                    <p>2015年进入中国，是目前国内教学体系最完整、师资力量最强大、乐器种类最齐全、教学环境最高端的音乐教育品牌。</p>
+                    <p>系统秉持「音乐」就是一种最好的全人教育，强调「音乐教学」与「人格教育」并重，除了乐理知识外，更将人格教育导入课程之中，藉由团班式的模仿学习，建立孩子的人际互动关系，开拓孩子的学习视野。循序渐进的让孩子了解自己、找到自己的优势，更懂得如何去欣赏别人。</p>
+                </div>
             </div>
-            <div class="our_adv_div1">
+        </div>
+        <div class="our_adv_div2">
+            <div class="our_adv_div2_div">
                 <div class="text">
                     <h2 class="our_adv_h2">
-                        <div class="num" th:utext="${inveTitle4.gwTitle}">
-                            01
+                        <div class="num" th:utext="${inveTitle5.gwTitle}">
+                            02
                         </div>
-                        <div class="t" th:utext="${inveTitle4.gwSubtitle}">
-                            优选国际品牌 <br> 赢在起点
+                        <div class="t" th:utext="${inveTitle5.gwSubtitle}">
+                            录音棚级专业教室环境 <br>大空间 高回报
                         </div>
                     </h2>
-                    <div class="text2" th:utext="${inveTitle4.gwContext}">
-                        <p>Holistic玫苓全人音乐教学系统创始于西年1992年，是集课程开发与音乐教学设计于一体，是亚洲地区唯一通过英国权威ITA国际组织ISO9001认证，汇聚音乐美学与完整人格兼具的国际优质教学系统。目前教学足迹已遍及台湾、美国、日本、新加坡、马来西亚、维也纳等多个国家及地区。</p>
-                        <p>2015年进入中国，是目前国内教学体系最完整、师资力量最强大、乐器种类最齐全、教学环境最高端的音乐教育品牌。</p>
-                        <p>系统秉持「音乐」就是一种最好的全人教育，强调「音乐教学」与「人格教育」并重，除了乐理知识外，更将人格教育导入课程之中，藉由团班式的模仿学习，建立孩子的人际互动关系，开拓孩子的学习视野。循序渐进的让孩子了解自己、找到自己的优势，更懂得如何去欣赏别人。</p>
+                    <div th:utext="${inveTitle5.gwContext}">
                     </div>
                 </div>
             </div>
-            <div class="our_adv_div2">
-                <div class="our_adv_div2_div">
-                    <div class="text">
-                        <h2 class="our_adv_h2">
-                            <div class="num" th:utext="${inveTitle5.gwTitle}">
-                                02
-                            </div>
-                            <div class="t" th:utext="${inveTitle5.gwSubtitle}">
-                                录音棚级专业教室环境 <br>大空间 高回报
-                            </div>
-                        </h2>
-                        <div th:utext="${inveTitle5.gwContext}">
-                        </div>
-                    </div>
-                </div>
-                <div class="img">
-                    <img th:src="${inveTitle5.gwImg1}" alt="">
-                </div>
+            <div class="img">
+                <img th:src="${inveTitle5.gwImg1}" alt="">
             </div>
-            <div class="our_adv_div3">
-                <h3><span class="t" th:utext="${inveTitle6.gwContext}">
+        </div>
+        <div class="our_adv_div3">
+            <h3><span class="t" th:utext="${inveTitle6.gwContext}">
                         <span>
                             Musical Instruments <br />From All Over The World<br />
                         </span>
                     </span>
-                    <span class="span" th:utext="${inveTitle6.gwTitle}">03</span>
-                    <span class="t" th:utext="${inveTitle6.gwSubtitle}">
+                <span class="span" th:utext="${inveTitle6.gwTitle}">03</span>
+                <span class="t" th:utext="${inveTitle6.gwSubtitle}">
                         <span><br /> 市场稀缺的<br /> 丰富教学乐器</span>
                     </span>
-                </h3>
+            </h3>
 
+        </div>
+        <div class="our_adv_div4">
+            <div class="our_adv_div4_t">
+                <h2 class="our_adv_h2">
+                    <div class="num" th:utext="${inveTitle7.gwTitle}">
+                        04
+                    </div>
+                    <div class="t" th:utext="${inveTitle7.gwSubtitle}">
+                        突破传统教育观念，打造完整教学生态 <br> 开创多元盈利新时代
+                    </div>
+                </h2>
             </div>
-            <div class="our_adv_div4">
-                <div class="our_adv_div4_t">
-                    <h2 class="our_adv_h2">
-                        <div class="num" th:utext="${inveTitle7.gwTitle}">
-                            04
+            <ul class="our_adv_div4_list">
+                <li th:each="inveList5:${inveList5}">
+                    <div><img th:src="${inveList5.gwImg1}" alt=""></div>
+                    <h3 th:utext="${inveList5.gwTitle}">研发</h3>
+                    <p th:utext="${inveList5.gwSubtitle}">DEVELOPMENT</p>
+                </li>
+            </ul>
+        </div>
+        <div class="our_adv_div5">
+            <div class="our_adv_div5_div">
+                <div>
+
+                    <div class="text">
+                        <h2 class="our_adv_h2">
+                            <div class="num" th:utext="${inveTitle8.gwTitle}">
+                                05
+                            </div>
+                            <div class="t" th:utext="${inveTitle8.gwSubtitle}">
+                                课程学习周期长 <br> 续课率行业领先
+                            </div>
+                        </h2>
+                        <div class="img">
+                            <img th:src="${inveTitle8.gwImg1}" alt="">
                         </div>
-                        <div class="t" th:utext="${inveTitle7.gwSubtitle}">
-                            突破传统教育观念，打造完整教学生态 <br> 开创多元盈利新时代
+                        <div th:utext="${inveTitle8.gwContext}">
+                            <p>
+                                <span>5阶</span>专业音乐课程<br> 提供学员至少<span>6</span>年的长跨度持续教学<br> 大大提高单个客户开发度及收益周期
+                            </p>
                         </div>
-                    </h2>
+                    </div>
                 </div>
-                <ul class="our_adv_div4_list">
-                    <li th:each="inveList5:${inveList5}">
-                        <div><img th:src="${inveList5.gwImg1}" alt=""></div>
-                        <h3 th:utext="${inveList5.gwTitle}">研发</h3>
-                        <p th:utext="${inveList5.gwSubtitle}">DEVELOPMENT</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="our_adv_div5">
-                <div class="our_adv_div5_div">
-                    <div>
-
-                        <div class="text">
-                            <h2 class="our_adv_h2">
-                                <div class="num" th:utext="${inveTitle8.gwTitle}">
-                                    05
-                                </div>
-                                <div class="t" th:utext="${inveTitle8.gwSubtitle}">
-                                    课程学习周期长 <br> 续课率行业领先
-                                </div>
-                            </h2>
-                            <div class="img">
-                                <img th:src="${inveTitle8.gwImg1}" alt="">
-                            </div>
-                            <div th:utext="${inveTitle8.gwContext}">
-                                <p>
-                                    <span>5阶</span>专业音乐课程<br> 提供学员至少<span>6</span>年的长跨度持续教学<br> 大大提高单个客户开发度及收益周期
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="investment_img6">
-                        <img th:src="${inveTitle8.gwImg2}" alt="">
-                    </div>
+                <div class="investment_img6">
+                    <img th:src="${inveTitle8.gwImg2}" alt="">
                 </div>
             </div>
         </div>
+    </div>
 
-        <!--投资咨询-->
-        <div class="ine_div7">
-            <div class="ine_div7_div">
-                <div class="ine_div7_div2">
+    <!--投资咨询-->
+    <div class="ine_div7">
+        <div class="ine_div7_div">
+            <div class="ine_div7_div2">
 
-                    <div class="cont">
-                        <h1 th:text="${inveTitle10.gwTitle}">投资要求</h1>
-                        <p class="subtitle" th:text="${inveTitle10.gwSubtitle}">
-                            Requirement
-                        </p>
-                        <div class="line">
+                <div class="cont">
+                    <h1 th:text="${inveTitle10.gwTitle}">投资要求</h1>
+                    <p class="subtitle" th:text="${inveTitle10.gwSubtitle}">
+                        Requirement
+                    </p>
+                    <div class="line">
                             <span>
-                            
+
                         </span>
-                        </div>
-                        <div th:utext="${inveTitle10.gwContext}">
-                            <ul>
-                                <li>1. 认同Holistic品牌及文化；</li>
-                                <li>2. 有一定资金实力，有开展各种市场活动的能力；</li>
-                                <li>3. 有能力、有责任心、有毅力的创业者；</li>
-                                <li>4. 拥有或能组织一定规模稳定的专业团队；</li>
-                                <li>5. 管理者具备对当地市场的预估、协调、掌控能力；</li>
-                                <li>6. 最好拥有一定高端客户资源或媒体资源；</li>
-                                <li>7. 热爱儿童教育事业，能亲自参与筹备。</li>
-                            </ul>
-                        </div>
                     </div>
-                    <div class="cont">
-                        <h1>投资咨询</h1>
-                        <p class="subtitle">
-                            Consultation
-                        </p>
-                        <div class="line">
-                            <span>
-                            </span>
-                        </div>
-                        <p>
-                            请留下您的联系方式
-                            <br> 我们的投资顾问将在24小时内为您提供咨询
-                        </p>
+                    <div th:utext="${inveTitle10.gwContext}">
                         <ul>
-                            <li><input type="text" placeholder="姓名" id="name"></li>
-                            <li><input type="text" placeholder="意向城市" id="city"></li>
-                            <li><input type="text" placeholder="联系方式" id="tel"></li>
-                            <li><button onclick="addInvestment()">提交信息</button></li>
+                            <li>1. 认同Holistic品牌及文化；</li>
+                            <li>2. 有一定资金实力，有开展各种市场活动的能力；</li>
+                            <li>3. 有能力、有责任心、有毅力的创业者；</li>
+                            <li>4. 拥有或能组织一定规模稳定的专业团队；</li>
+                            <li>5. 管理者具备对当地市场的预估、协调、掌控能力；</li>
+                            <li>6. 最好拥有一定高端客户资源或媒体资源；</li>
+                            <li>7. 热爱儿童教育事业，能亲自参与筹备。</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </main>
-    <footer th:fragment="wap_footer">
-        <!--免费试听预约-->
-        <!--<div class="sign_div">
-            <ul class="sign_from2" id="sign_from2" style="display: none">
-                <li class="t">免费试听课预约</li>
-                <li><input type="text" placeholder="宝贝名称" id="babyName" name="babyName"></li>
-                <li><input type="text" placeholder="宝贝年龄" id="babyAge" name="babyAge"></li>
-                <li><input type="text" placeholder="联系手机" id="tel" name="tel"></li>
-                <li><input type="text" placeholder="微信号(选填)" id="wxNum" name="wxNum"></li>
-                <li>
-                    <button id="appoint" onclick="appoint()">提交预约</button>
-                </li>
-            </ul>
-            <div class="sign_from" id="sign_from">
-                <span>免费<br/>试听课预约</span>
-
-                <button id="click_yy">点击预约</button>
-            </div>
-        </div>-->
-        <div class="con_inf">
-            <div class="con_inf_div">
-                <div class="phone-warning">
-                    投资有风险，创业需谨慎
-                </div>
-
-                <!--<div class="tel">
-                    <img src="/images/tel.png" alt="">
-                </div>-->
-                <!--<div class="con_inf_other">
-                    <div class="logo_div">
-                        <img src="/images/logo2.png" alt="logo">
+                <div class="cont">
+                    <h1>投资咨询</h1>
+                    <p class="subtitle">
+                        Consultation
+                    </p>
+                    <div class="line">
+                            <span>
+                            </span>
                     </div>
-                    <ul class="add_ul">
-                        <li>
-                            <div class="add_icon">
-                                <img src="/images/add.png" alt="">
-                            </div>
-                            <div class="add_t">
-                                <p>台湾区总部</p>
-                                <p>台湾新北市永和区中山路一段7号7楼</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="add_icon">
-                                <img src="/images/add.png" alt="">
-                            </div>
-                            <div class="add_t">
-                                <p>大陆区总部</p>
-                                <p>厦门市思明区松岳路10号悦享中心B塔10F</p>
-                            </div>
-                        </li>
+                    <p>
+                        请留下您的联系方式
+                        <br> 我们的投资顾问将在24小时内为您提供咨询
+                    </p>
+                    <ul>
+                        <li><input type="text" placeholder="姓名" id="name"></li>
+                        <li><input type="text" placeholder="意向城市" id="city"></li>
+                        <li><input type="text" placeholder="联系方式" id="tel"></li>
+                        <li><button onclick="addInvestment()">提交信息</button></li>
                     </ul>
-                    <div class="erweima"><img src="/images/erweima.png" alt="二维码"></div>
-                </div>-->
+                </div>
             </div>
         </div>
-        <p class="copyright">
-            Holistic 玫苓全人音乐 | 北京市渠道网络技术开发有限公司
-        </p>
-        <p class="copyright">
-            版权所有 Copyrght©2016-2020
-        </p>
-        <script src="/js/plugins/layer/layer.js"></script>
-        <script>
-            function appoint() {
-                $.ajax({
-                    type: "POST",
-                    url: "/pc/appiont",
-                    async: false,
-                    data: {
-                        "fromChannel": "手机",
-                        "babyName": $("#babyName").val(),
-                        "babyAge": $("#babyAge").val(),
-                        "tel": $("#tel").val(),
-                        "wxNum": $("#wxNum").val()
-                    },
-                    success: function (r) {
-                        if (r.code == 0) {
-                            $("#babyName").val("");
-                            $("#babyAge").val("");
-                            $("#tel").val("");
-                            $("#wxNum").val("");
-                            layer.msg("您的预约已经提交，我们的工作人员会在第一时间联系您");
-                        } else {
-                            layer.msg(r.msg);
-                        }
-                    },
-                    error: function (request) {
-                        parent.layer.alert("系统错误");
-                    }
-                });
-                return false;
-            }
+    </div>
+</main>
+<footer th:fragment="wap_footer">
 
-            function addInvestment() {
-                $.ajax({
-                    type: "POST",
-                    url: "/pc/addInvestment",
-                    async: false,
-                    data: {"name": $("#name").val(), "city": $("#city").val(), "tel": $("#tel").val()},
-                    success: function (r) {
-                        if (r.code == 0) {
-                            $("#name").val("");
-                            $("#city").val("");
-                            $("#tel").val("");
-                            layer.msg("您的投资意向已经提交，我们的工作人员会在第一时间联系您");
-                        } else {
-                            layer.msg(r.msg);
-                        }
-                    },
-                    error: function (request) {
-                        parent.layer.alert("系统错误");
-                    }
-                });
-                return false;
-            }
-        </script>
-        <script>
-            var _hmt = _hmt || [];
-            (function () {
-                var hm = document.createElement("script");
-                hm.src = "https://hm.baidu.com/hm.js?50cf7c44e57f5ff07ab77ee40eb5864d";
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(hm, s);
-            })();
-        </script>
-    </footer>
+    <div class="con_inf">
+        <div class="con_inf_div">
+          <div class="phone-warning">
+              投资有风险，创业需谨慎
+          </div>
+        </div>
+    </div>
+    <p class="copyright">
+        Holistic 玫苓全人音乐| 北京市渠道网络技术开发有限公司
+    </p>
+    <p class="copyright">
+        版权所有 Copyrght©2016-2020
+    </p>
+    <script src="/js/plugins/layer/layer.js"></script>
     <script>
-        $("#p_mul").click(function() {
-            var tnl = $("#top_nac_ul")
-            if (tnl.is(":hidden")) {
-                $("#p_mul").addClass("on");
-                $("#top_nac_ul").slideDown();
-            } else {
-                $("#p_mul").removeClass("on");
-                $("#top_nac_ul").slideUp();
-            }
-        })
-       /* $("#click_yy").click(function() {
-            $("#sign_from2").slideDown();
-            $("#sign_from").slideUp();
+        function appoint() {
+            $.ajax({
+                type: "POST",
+                url: "/pc/appiont",
+                async: false,
+                data: {
+                    "fromChannel": "手机",
+                    "babyName": $("#babyName").val(),
+                    "babyAge": $("#babyAge").val(),
+                    "tel": $("#tel").val(),
+                    "wxNum": $("#wxNum").val()
+                },
+                success: function (r) {
+                    if (r.code == 0) {
+                        $("#babyName").val("");
+                        $("#babyAge").val("");
+                        $("#tel").val("");
+                        $("#wxNum").val("");
+                        layer.msg("您的预约已经提交，我们的工作人员会在第一时间联系您");
+                    } else {
+                        layer.msg(r.msg);
+                    }
+                },
+                error: function (request) {
+                    parent.layer.alert("系统错误");
+                }
+            });
+            return false;
+        }
 
-        })*/
-       /* $("#click_tj").click(function() {
-            $("#sign_from2").slideUp();
-            $("#sign_from").slideDown();
-        })*/
+        function addInvestment() {
+            $.ajax({
+                type: "POST",
+                url: "/pc/addInvestment",
+                async: false,
+                data: {"name": $("#name").val(), "city": $("#city").val(), "tel": $("#tel").val()},
+                success: function (r) {
+                    if (r.code == 0) {
+                        $("#name").val("");
+                        $("#city").val("");
+                        $("#tel").val("");
+                        layer.msg("您的投资意向已经提交，我们的工作人员会在第一时间联系您");
+                    } else {
+                        layer.msg(r.msg);
+                    }
+                },
+                error: function (request) {
+                    parent.layer.alert("系统错误");
+                }
+            });
+            return false;
+        }
     </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?50cf7c44e57f5ff07ab77ee40eb5864d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</footer>
+<script>
+    $("#p_mul").click(function() {
+        var tnl = $("#top_nac_ul")
+        if (tnl.is(":hidden")) {
+            $("#p_mul").addClass("on");
+            $("#top_nac_ul").slideDown();
+        } else {
+            $("#p_mul").removeClass("on");
+            $("#top_nac_ul").slideUp();
+        }
+    })
+    $("#click_yy").click(function() {
+        $("#sign_from2").slideDown();
+        $("#sign_from").slideUp();
+
+    })
+    $("#click_tj").click(function() {
+        $("#sign_from2").slideUp();
+        $("#sign_from").slideDown();
+    })
+</script>
 </body>
 </html>

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * Created by huyuangui on 2018/8/11.
  */
@@ -53,30 +54,5 @@ public class InvestmentPromotionWapController extends InvestmentCommController {
         return "pc/wap/investmentPromotion";
     }
 
-   /* @RequestMapping("preInvestment")
-    public String preInvestment(){
-        super.index();
-        PageDO pageDO= pageService.getByPageType("about");
-        Map<String, Object> params =new HashedMap();
-        params.put("pcPageId",pageDO.getId());
-        params.put("gwType","首席顾问");
-        params.put("gwStatus","1");
-        params.put("offset",0);
-        params.put("limit",1);
-        List teamTop= gwService.list(params);
-        request.setAttribute("teamTop",teamTop.get(0));
-
-        Map<String, Object> prams6 =new HashedMap();
-        prams6.put("pcPageId",pageDO.getId());
-        prams6.put("gwType","顾问");
-        prams6.put("sort","gw_sort");
-        prams6.put("order","ASC");
-        prams6.put("gwStatus","1");
-        prams6.put("offset",0);
-        prams6.put("limit",4);
-        List  teamList= gwService.list(prams6);
-        request.setAttribute("teamList",teamList);
-        return "pc/wap/preInvestment";
-    }*/
 }
 
