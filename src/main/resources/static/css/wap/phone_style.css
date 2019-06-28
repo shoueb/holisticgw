@@ -124,6 +124,9 @@
     background-image: -webkit-linear-gradient( -90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
     background-image: -ms-linear-gradient( -90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
 }
+.top_title.promotion{
+    top: 3rem;
+}
 
 .top_title h1 {
     text-align: center;
@@ -873,7 +876,12 @@
     margin: 0 10%;
     padding-top: 1.2rem;
 }
-
+.con_inf_div .phone-warning{
+    text-align: center;
+    font-size: 1.2rem;
+    color: #2f2725;
+    padding-bottom: 1.2rem;
+}
 .con_inf_div .tel {
     text-align: center;
     margin-bottom: 10px;
@@ -956,6 +964,9 @@
     height: 12rem;
 }
 
+.newspage_top.promotion{
+    margin-top: 0;
+}
 .news_main {
     width: 100%;
     margin: auto;

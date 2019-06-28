@@ -194,7 +194,7 @@ public class InvestmentCommController {
         List  inveTitle10= gwService.list(prams16);
         request.setAttribute("inveTitle10",inveTitle10.get(0));
 
-        return "pc/web/investment";
+        return "pc/wab/investment";
 
     }
 }
