@@ -28,12 +28,12 @@
             <li th:each="list4:${list4}">
                 <div class="li_div">
                     <div class="advan_img">
-                        <img th:src="${list4.gwImg2}" alt="">
+                        <img th:src="${list4.gwImg2}" th:alt="${list4.gwTitle}">
                     </div>
                     <div>
                         <div class="advan_test">
                             <div class="advan_icon">
-                                <img th:src="${list4.gwImg1}" alt="">
+                                <img th:src="${list4.gwImg1}"  th:alt="${list4.gwTitle}">
                             </div>
                             <div class="advan_t">
                                 <h1 th:text="${list4.gwTitle}">研发</h1>

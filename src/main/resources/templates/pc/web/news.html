@@ -27,7 +27,7 @@
 		<ul id="news_nav_list" class="flex">
 			<li th:each="newNav:${newsNavList}" >
 				<span th:if="${gwType==newNav}" class="circle"></span>
-				<a th:href="@{${'/pc/news?'}(gwType=${newNav},pageNum=1,size=10)}">
+				<a th:href="@{${'/pc/news?'}(gwType=${newNav},pageNum=1,size=10)}" >
 					<span  th:text="${newNav}">活动预告 </span>
 				</a>
 			</li>
@@ -37,13 +37,13 @@
 		<ul>
 			<li th:each="news:${newsList1}">
 				<div class="img_div">
-					<a th:href="'/pc/details?id='+${news.id}">
+					<a th:href="'/pc/details?id='+${news.id}" th:title="${news.gwTitle}">
 						<div class="art_mask">
 							<div><img src="/images/book.png" alt=""></div>
 							<p>阅读全文</p>
 						</div>
 						<!--max-width: 100%;max-height: 100%;-->
-						<img th:src="${news.gwImg1}" alt="" style="width: 100%;height: auto;">
+						<img th:src="${news.gwImg1}" th:alt="${news.gwTitle}" style="width: 100%;height: auto;">
 					</a>
 				</div>
 				<a th:href="'/pc/details?id='+${news.id}">

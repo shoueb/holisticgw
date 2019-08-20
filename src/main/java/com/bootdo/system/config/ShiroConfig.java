@@ -73,6 +73,7 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSuccessUrl("/adminIndex");
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
+        filterChainDefinitionMap.put("/baidu_verify_**","anon");
         filterChainDefinitionMap.put("/login","anon");
         filterChainDefinitionMap.put("/config","anon");
         filterChainDefinitionMap.put("/ueditor","anon");

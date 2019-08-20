@@ -65,7 +65,7 @@
             <ul class=" slides">
                 <li class="images" th:each="list1:${list1}">
                     <div class="lbt_left">
-                        <img alt="" th:src="${list1.gwImg1}"/>
+                        <img  th:src="${list1.gwImg1}" th:alt="${list1.gwTitle}"/>
                     </div>
 
                     <div class="lbt_right">
@@ -78,7 +78,7 @@
                             风靡全国的玫苓周年庆音乐会于2018年6月23日在贵阳小河区万科购物广场隆重上演，现场人头涌动，水泄不通，孩子们的表演得到了家长和商户们的一直肯定。
                         </p>
                         <div>
-                            <a class="button" th:href="'/pc/details?id='+${list1.id}">阅读全文</a>
+                            <a class="button" th:href="'/pc/details?id='+${list1.id}" th:title="${list1.gwTitle}">阅读全文</a>
                         </div>
                     </div>
                 </li>
@@ -98,7 +98,7 @@
         <div class="main_ul">
             <ul class="main_ul_1">
                 <li th:each="list3:${list3}">
-                    <div><img alt="" th:src="${list3.gwImg1}"></div>
+                    <div><img  th:src="${list3.gwImg1}" th:alt="${list3.gwTitle}" ></div>
                     <h3 th:text="${list3.gwTitle}">研发</h3>
                     <p th:text="${list3.gwSubtitle}">DEVELOPMENT</p>
                 </li>
@@ -125,7 +125,7 @@
         <div class="main_ul">
             <ul class="main_ul_2" id="course_list">
                 <li th:each="list5:${list5}">
-                    <a th:href="'/pc/course?listNum='+${list5.gwSort}">
+                    <a th:href="'/pc/course?listNum='+${list5.gwSort}"  th:title="${list5.gwTitle}">
                         <div class="img_div">
 
                             <div class="li_mask" style="display:none">
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
 
-                            <img alt="" th:src="${list5.gwImg1}">
+                            <img  th:src="${list5.gwImg1}" th:alt="${list5.gwTitle}">
                         </div>
                         <h2 class="curr_h2" th:text="${list5.gwTitle}">Family Music House</h2>
                         <p class="curr_p">
@@ -157,7 +157,7 @@
     <div class="main_div_2">
         <div class="main_div">
             <div class="main_div_2_img">
-                <img alt="" th:src="${list6.gwImg1}">
+                <img th:alt="${list6.gwTitle}" th:src="${list6.gwImg1}">
             </div>
             <div class="main_div_2_t">
                 <h1>
@@ -174,7 +174,7 @@
                     </p>
                 </div>
                 <div>
-                    <a class="button" href="/pc/aboutme">
+                    <a class="button" href="/pc/aboutme" alt="师资">
                         了解更多
                     </a>
                 </div>
@@ -195,7 +195,7 @@
         </div>
         <ul class="main_ul_3">
             <li th:each="listNews:${listNews}">
-                <a th:href="'/pc/details?id='+${listNews.id}">
+                <a th:href="'/pc/details?id='+${listNews.id}" th:title="${listNews.gwTitle}">
                     <div class="time_div">
                         <time class="day" th:text="${#dates.format(listNews.gwChangeStartTime, 'dd')}">23</time>
                         <time th:text="${#dates.format(listNews.gwChangeStartTime, 'yyyy MM ')}">2018-07</time>
@@ -213,7 +213,7 @@
         </ul>
         <div class="btn_div">
             <span class="left"></span>
-            <a class="button" href="/pc/news">更多新闻</a>
+            <a class="button" href="/pc/news" title="更多新闻">更多新闻</a>
             <span class="right"></span>
         </div>
     </div>
@@ -222,7 +222,7 @@
         <div class="main_div">
             <ul class="main_ul_4">
                 <li th:each="list8:${list8}">
-                    <div class="img_div"><img alt="" th:src="${list8.gwImg1}"></div>
+                    <div class="img_div"><img th:alt="${list8.gwTitle}" th:src="${list8.gwImg1}"></div>
                     <h2 th:text="${list8.gwTitle}">免费试学承诺</h2>
                     <p th:text="${list8.gwContext}">对首次购买的课程不满意，可申请全额退款，但需在课程有效期内提出，详见《课程服务协议》。</p>
                 </li>
@@ -252,7 +252,7 @@
 
                     </div>
                     <div class="btn_div">
-                        <a href="/pc/investment">投资我们</a>
+                        <a href="/pc/investment" title="投资我们">投资我们</a>
                     </div>
                 </div>
             </div>

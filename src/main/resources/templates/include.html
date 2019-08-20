@@ -166,6 +166,32 @@
             }
         }
     </script>
+    <script>
+        (function(){
+            var canonicalURL, curProtocol;
+            //Get the <link> tag
+            var x=document.getElementsByTagName("link");
+            //Find the last canonical URL
+            if(x.length > 0){
+                for (i=0;i<x.length;i++){
+                    if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+                        canonicalURL=x[i].href;
+                    }
+                }
+            }
+            //Get protocol
+            if (!canonicalURL){
+                curProtocol = window.location.protocol.split(':')[0];
+            }
+            else{
+                curProtocol = canonicalURL.split(':')[0];
+            }
+            //Get current URL if the canonical URL does not exist
+            if (!canonicalURL) canonicalURL = window.location.href;
+            //Assign script content. Replace current URL with the canonical URL
+            !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+
+    </script>
 </footer>
 <div id="footer" th:fragment="footer">
     <script src="/js/jquery.min.js?v=2.1.4"></script>
@@ -199,43 +225,42 @@
         <div class="top_nav_div">
             <div class="top_nav_logo">
                 <div class="p_mul" id="p_mul">
-                    <img src="/images/mulist.png" alt="">
+                    <img src="/images/mulist.png" alt="玫苓少儿音乐培训">
                 </div>
                 <img src="/images/logo.png" alt="Logo">
             </div>
             <ul class="top_nac_ul" id="top_nac_ul">
-                <a href="/" target="_blank">
+                <a href="/" target="_blank" title="Holistic 玫苓 首页">
                     <li th:attr="class=${homepage}">
                         <p th:attr="class=${homepage}"> 首页</p>
                     </li>
                 </a>
-                <a href="/pc/aboutme" target="_blank">
+                <a href="/pc/aboutme" target="_blank" title="关于玫苓">
                     <li th:attr="class=${aboutme}">
                         <p th:attr="class=${aboutme}"> 关于玫苓 </p>
                     </li>
                 </a>
-                <a href="/pc/advantage" target="_blank">
+                <a href="/pc/advantage" target="_blank"  title="核心优势">
                     <li th:attr="class=${advantage}">
                         <p th:attr="class=${advantage}"> 核心优势 </p>
                     </li>
                 </a>
-                <a href="/pc/course" target="_blank">
+                <a href="/pc/course" target="_blank"  title="课程体系">
                     <li th:attr="class=${course}">
                         <p th:attr="class=${course}"> 课程体系 </p>
                     </li>
                 </a>
-                <a href="/pc/news" target="_blank">
+                <a href="/pc/news" target="_blank"  title="新闻动态">
                     <li th:attr="class=${news}">
                         <p th:attr="class=${news}"> 新闻动态 </p>
                     </li>
                 </a>
-                <a href="/pc/investment" target="_blank">
+                <a href="/pc/investment" target="_blank" title="投资合作">
                     <li th:attr="class=${investment}">
                         <p th:attr="class=${investment}"> 投资合作 </p>
                     </li>
                 </a>
-                <a href="/pc/taiwan" target="_blank"
-                >
+                <a href="/pc/taiwan" target="_blank" title="台湾玫苓">
                     <li th:attr="class=${taiwan}">
                         <p th:attr="class=${taiwan}"> 台湾玫苓 </p>
                     </li>
@@ -246,7 +271,7 @@
     <aside class="aside">
         <div class="back_top" id="back_top" style="display: none">
             <a href="#top">
-                <img src="/images/top.png" alt="">
+                <img src="/images/top.png" alt="少儿音乐培训">
             </a>
         </div>
     </aside>

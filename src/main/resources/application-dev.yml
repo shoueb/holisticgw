@@ -52,3 +52,7 @@ spring:
         max-active: 100
         # 连接池最大阻塞等待时间（使用负值表示没有限制）
         max-wait: -1
+server:
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain

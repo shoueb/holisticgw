@@ -126,12 +126,12 @@
                     </div>
                 </div>
                 <div class="img_div">
-                    <img th:src="${introList[0].gwImg1}" >
+                    <img th:src="${introList[0].gwImg1}" th:alt="${introList[0].gwTitle}">
                 </div>
             </div>
             <div class="two">
                 <div class="left_div">
-                    <img  th:src="${introList[1].gwImg1}" alt="">
+                    <img  th:src="${introList[1].gwImg1}" th:alt="${introList[1].gwTitle}">
                 </div>
                 <div class="text_div">
                     <span>
@@ -159,7 +159,7 @@
                     <ul class="slides">
                         <li class="images" th:each="course:${courseList}">
                             <div class="img_div">
-                                <img th:src="${course.gwImg1}" alt="">
+                                <img th:src="${course.gwImg1}" th:alt="${course.gwTitle}">
                             </div>
                             <div class="text_div">
                                 <h2 th:text="${course.gwTitle}">
@@ -250,7 +250,7 @@
             </div>
 
             <div class="brand_hono_img">
-               <img src="/images/Brand_Honor_img.png" alt="">
+               <img src="/images/Brand_Honor_img.png" alt="玫苓少儿音乐培训,品牌荣誉">
             </div>
             <div class="brand_hono_list">
                 <ul>

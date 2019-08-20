@@ -3,12 +3,18 @@ package com.bootdo.pc.controller;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import com.bootdo.common.Comm;
+import com.bootdo.common.utils.HttpClientUtils;
 import com.bootdo.common.utils.ShiroUtils;
+import com.bootdo.common.utils.StringUtils;
 import com.bootdo.pc.domain.PageDO;
 import com.bootdo.pc.service.PageService;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -39,6 +45,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/pc/gw")
 public class GwController {
+	Logger logger=LoggerFactory.getLogger(GwController.class);
 	@Autowired
 	private GwService gwService;
 	@Autowired
@@ -127,6 +134,8 @@ public class GwController {
 			gw.setUpdatetime(new Date());
 		}
 		if(gwService.save(gw)>0){
+			String context="http://www.4001180057.com/pc/details?id="+gw.getId();
+			postBaidu(gw);
 			return R.ok();
 		}
 		return R.error();
@@ -141,6 +150,7 @@ public class GwController {
 		gw.setUpdateby(ShiroUtils.getUser().getName());
 		gw.setUpdatetime(new Date());
 		gwService.update(gw);
+		postBaidu(gw);
 		return R.ok();
 	}
 	
@@ -167,5 +177,37 @@ public class GwController {
 		gwService.batchRemove(ids);
 		return R.ok();
 	}
-	
+	private void postBaidu(GwDO gw){
+		try {
+			if(gw.getPcPageId()!=null && gw.getPcPageId()>0) {
+				PageDO pageDO = pageService.get(gw.getPcPageId());
+				String context = "";
+				if (pageDO != null && StringUtils.isNotBlank(pageDO.getPageType())){
+					String pageType=pageDO.getPageType();
+					if (pageType.equals("homepage")) {
+						context = "http://www.4001180057.com?id=" + gw.getId();
+					}else if (pageType.equals("about")) {
+						context = "http://www.4001180057.com/pc/aboutme?id=" + gw.getId();
+					}else if (pageType.equals("advantage")) {
+						context = "http://www.4001180057.com/pc/advantage?id=" + gw.getId();
+					}else if (pageType.equals("course")) {
+						context = "http://www.4001180057.com/pc/course?id=" + gw.getId();
+					}else if (pageType.equals("news")) {
+						context="http://www.4001180057.com?id=" + UUID.randomUUID().toString().replace("-","").substring(0,8)+"\n";
+						context=context+"http://www.4001180057.com/pc/news?id=" + gw.getId()+"\n";
+						context =context+ "http://www.4001180057.com/pc/details?id=" + gw.getId();
+					}else if (pageType.equals("investment")) {
+						context = "http://www.4001180057.com/pc/investment?id=" + gw.getId();
+					}else if (pageType.equals("taiwan")) {
+						context = "http://www.4001180057.com/pc/taiwan?id=" + gw.getId();
+					}
+					logger.info(context);
+					logger.info(HttpClientUtils.doPostWithTxt(Comm.BAIDU_URL,context));
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

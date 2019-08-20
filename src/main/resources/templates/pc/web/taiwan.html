@@ -53,7 +53,7 @@
             <div class="w1000">
                 <div class="text_div">
                     <div class="com_icon">
-                        <img th:src="${taiwanList1.gwSubtitle}" alt="">
+                        <img th:src="${taiwanList1.gwSubtitle}" alt="玫苓少儿音乐培训,台湾梅苓">
                     </div>
                     <div class="text_p" th:utext="${taiwanList1.gwContext}">
                         <p >
@@ -80,16 +80,16 @@
                     <div class="flexslider" id="slider1">
                         <ul class="slides">
                             <li class="images" 　th:if="${not #lists.isEmpty(taiwanList1.gwImg1)}">
-                                <img  th:src="${taiwanList1.gwImg1}" alt="">
+                                <img  th:src="${taiwanList1.gwImg1}" th:alt="${taiwanList1.gwTitle}">
                             </li>
                             <li class="images" 　th:if="${not #lists.isEmpty(taiwanList1.gwImg2)}">
-                                <img  th:src="${taiwanList1.gwImg2}" alt="">
+                                <img  th:src="${taiwanList1.gwImg2}"  th:alt="${taiwanList1.gwTitle}">
                             </li>
                             <li class="images" 　th:if="${not #lists.isEmpty(taiwanList1.gwImg3)}">
-                                <img  th:src="${taiwanList1.gwImg3}" alt="">
+                                <img  th:src="${taiwanList1.gwImg3}"  th:alt="${taiwanList1.gwTitle}">
                             </li>
                             <li class="images" th:if="${not #lists.isEmpty(taiwanList1.gwImg4)}">
-                                <img  th:src="${taiwanList1.gwImg4}" alt="">
+                                <img  th:src="${taiwanList1.gwImg4}"  th:alt="${taiwanList1.gwTitle}">
                             </li>
                         </ul>
                     </div>
@@ -103,23 +103,23 @@
                     <div class="flexslider" id="slider2">
                         <ul class="slides">
                             <li class="images" 　th:if="${not #lists.isEmpty(taiwanList2.gwImg1)}">
-                                <img  th:src="${taiwanList2.gwImg1}" alt="">
+                                <img  th:src="${taiwanList2.gwImg1}"  th:alt="${taiwanList2.gwTitle}">
                             </li>
                             <li class="images" 　th:if="${not #lists.isEmpty(taiwanList2.gwImg2)}">
-                                <img  th:src="${taiwanList2.gwImg2}" alt="">
+                                <img  th:src="${taiwanList2.gwImg2}"  th:alt="${taiwanList2.gwTitle}">
                             </li>
                             <li class="images" 　th:if="${not #lists.isEmpty(taiwanList2.gwImg3)}">
-                                <img  th:src="${taiwanList2.gwImg3}" alt="">
+                                <img  th:src="${taiwanList2.gwImg3}"  th:alt="${taiwanList2.gwTitle}">
                             </li>
                             <li class="images" th:if="${not #lists.isEmpty(taiwanList2.gwImg4)}">
-                                <img  th:src="${taiwanList2.gwImg4}" alt="">
+                                <img  th:src="${taiwanList2.gwImg4}"  th:alt="${taiwanList2.gwTitle}">
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="text_div">
                     <div class="img">
-                        <img th:src="${taiwanList2.gwSubtitle}" alt="">
+                        <img th:src="${taiwanList2.gwSubtitle}"  th:alt="${taiwanList2.gwTitle}">
                     </div>
                     <div class="text_p" th:utext="${taiwanList2.gwContext}">
                         <p >

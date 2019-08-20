@@ -40,7 +40,7 @@
                 <li class="" style="background-image: url(/images/courses_nav_icon1.png)">
                     <div class="nav_img">
                         <a href="javascript:void(0)">
-                        <img src="/images/courses_nav_img1.png" alt="">
+                        <img src="/images/courses_nav_img1.png" alt="玫苓少儿音乐培训,课程体系">
                         </a>
                     </div>
                 </li>
@@ -100,12 +100,12 @@
                                 <h1 th:text="${List.gwTitle}">亲子音乐屋</h1>
                                 <p th:text="${List.gwSubtitle}">Family Music House</p>
                                 <div class="tit_img">
-                                    <img th:src="${List.gwImg4}" alt="">
+                                    <img th:src="${List.gwImg4}" th:alt="${List.gwTitle}">
                                 </div>
                             </div>
                             <!--维度图-->
                             <div class="wd">
-                                <img th:src="${List.gwImg3}" alt="">
+                                <img th:src="${List.gwImg3}" th:alt="${List.gwTitle}">
                             </div>
                         </div>
                         <!--说明-->
@@ -114,12 +114,12 @@
                                 以特别为孩子设计编曲制作的音乐，含括了「古典、民谣、儿歌」等主要素材。另辅以音乐五觉「听觉探索、视觉观察、触觉体验、前庭平衡、本体协调」为主轴所设计的音乐官能故事、游戏，利用孩子天生的好奇心来引导他们进入有趣的音乐世界，运用了孩子本能的「绝对音感」来启动他们对声响的反应能力与模仿力。
                             </p>
                             <!--维度图说明-->
-                            <img th:src="${List.gwImg5}" alt="">
+                            <img th:src="${List.gwImg5}" th:alt="${List.gwTitle}">
                         </div>
 
                     </div>
                     <div class="courses_md1">
-                        <img th:src="${List.gwImg2}" alt="">
+                        <img th:src="${List.gwImg2}" th:alt="${List.gwTitle}">
                     </div>
                 </li>
 
@@ -131,7 +131,7 @@
             <ul class="musical_ul slides">
                 <li class="images" th:each="musicalList:${musicalList}">
                    <div class="musical_img">
-                       <img th:src="${musicalList.gwImg1}" alt="">
+                       <img th:src="${musicalList.gwImg1}" th:alt="${musicalList.gwTitle}">
                         <!--<img src="/images/courses_musical.png" alt="">-->
                     </div>
                    <div class="musical_text">
