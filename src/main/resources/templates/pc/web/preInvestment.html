@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${page.title}">投资合作</title>
-    <meta name="keywords" th:attr="content=${page.seoKeywords}" />
-    <meta name="description" th:attr="content=${page.seoDescription}" />
+    <title th:text="${page.title}+'--'+${keysDO.keys}">投资合作</title>
+    <meta name="keywords" th:attr="content=${page.seoKeywords}+'--'+${keysDO.keys}" />
+    <meta name="description" th:attr="content=${page.seoDescription}+'--'+${keysDO.keys}" />
     <link rel="stylesheet" type="text/css" href="/css/reseet.css">
     <link rel="stylesheet" type="text/css" href="/css/pc_style.css">
     <link rel="stylesheet" type="text/css" href="/css/flexslider.css">

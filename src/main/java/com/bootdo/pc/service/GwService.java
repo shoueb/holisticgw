@@ -1,6 +1,7 @@
 package com.bootdo.pc.service;
 
 import com.bootdo.pc.domain.GwDO;
+import com.bootdo.pc.domain.KeysDO;
 
 import java.util.List;
 import java.util.Map;
@@ -13,7 +14,9 @@ import java.util.Map;
  * @date 2018-08-11 10:33:49
  */
 public interface GwService {
-	
+
+	KeysDO getKeysById(Integer id);
+
 	GwDO get(Integer id);
 	
 	List<GwDO> list(Map<String, Object> map);

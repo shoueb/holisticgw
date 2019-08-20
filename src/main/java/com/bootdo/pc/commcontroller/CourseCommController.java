@@ -1,5 +1,6 @@
 package com.bootdo.pc.commcontroller;
 
+import com.bootdo.pc.domain.KeysDO;
 import com.bootdo.pc.domain.PageDO;
 import com.bootdo.pc.service.GwService;
 import com.bootdo.pc.service.PageService;
@@ -26,6 +27,8 @@ public class CourseCommController {
     private HttpServletRequest request;
 
     public String index(){
+        KeysDO keysDO= gwService.getKeysById(1);
+        request.setAttribute("keysDO",keysDO);
         request.setAttribute("course","on");
         //获取课程体系
         PageDO pageDO= pageService.getByPageType("course");

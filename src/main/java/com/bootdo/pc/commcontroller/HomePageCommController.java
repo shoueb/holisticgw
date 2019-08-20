@@ -1,5 +1,6 @@
 package com.bootdo.pc.commcontroller;
 
+import com.bootdo.pc.domain.KeysDO;
 import com.bootdo.pc.domain.PageDO;
 import com.bootdo.pc.service.GwService;
 import com.bootdo.pc.service.PageService;
@@ -26,6 +27,9 @@ public class HomePageCommController {
     private HttpServletRequest request;
 
     public String index(){
+        KeysDO keysDO= gwService.getKeysById(1);
+        request.setAttribute("keysDO",keysDO);
+
         request.setAttribute("homepage","on");
         //获取首页
         PageDO pageDO= pageService.getByPageType("homepage");

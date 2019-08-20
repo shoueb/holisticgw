@@ -1,5 +1,7 @@
 package com.bootdo.pc.service.impl;
 
+import com.bootdo.pc.dao.KeysDao;
+import com.bootdo.pc.domain.KeysDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,14 @@ import com.bootdo.pc.service.GwService;
 public class GwServiceImpl implements GwService {
 	@Autowired
 	private GwDao gwDao;
-	
+	@Autowired
+	private KeysDao keysDao;
+
+	@Override
+	public KeysDO getKeysById(Integer id) {
+		return keysDao.get(id);
+	}
+
 	@Override
 	public GwDO get(Integer id){
 		return gwDao.get(id);

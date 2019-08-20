@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title th:text="${article.gwTitle}">详情</title>
-	<meta name="keywords" th:attr="content=${article.seoKeywords}" />
-	<meta name="description" th:attr="content=${article.seoDescription}" />
+	<title th:text="${article.gwTitle}+'--'+${keysDO.keys}">详情</title>
+	<meta name="keywords" th:attr="content=${article.seoKeywords}+'--'+${keysDO.keys}" />
+	<meta name="description" th:attr="content=${article.seoDescription}+'--'+${keysDO.keys}" />
 	<link rel="stylesheet" type="text/css" href="/css/reseet.css">
 	<link rel="stylesheet" type="text/css" href="/css/pc_style.css">
 	<link rel="stylesheet" type="text/css" href="/css/flexslider.css">

@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title th:text="${page.title}">关于玫苓</title>
-    <meta name="keywords" th:attr="content=${page.seoKeywords}">
+    <title th:text="${page.title}+'--'+${keysDO.keys}">关于玫苓</title>
+    <meta name="keywords" th:attr="content=${page.seoKeywords}+'--'+${keysDO.keys}">
 </head>
-<meta name="description" th:attr="content=${page.seoDescription}"/>
+<meta name="description" th:attr="content=${page.seoDescription}+'--'+${keysDO.keys}"/>
 <link href="/css/reseet.css" rel="stylesheet" type="text/css">
 <link href="/css/pc_style.css" rel="stylesheet" type="text/css">
 <link href="/css/flexslider.css" rel="stylesheet" type="text/css">

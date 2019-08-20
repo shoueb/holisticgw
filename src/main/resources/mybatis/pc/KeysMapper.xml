@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.pc.dao.KeysDao">
+
+	<select id="get" resultType="com.bootdo.pc.domain.KeysDO">
+		select `id`,`keys`,status,`createTime`,`createBy`
+		 from pc_keys where id = #{value}
+	</select>
+</mapper>

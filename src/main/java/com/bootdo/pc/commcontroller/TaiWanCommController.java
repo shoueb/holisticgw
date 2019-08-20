@@ -1,5 +1,6 @@
 package com.bootdo.pc.commcontroller;
 
+import com.bootdo.pc.domain.KeysDO;
 import com.bootdo.pc.domain.PageDO;
 import com.bootdo.pc.service.GwService;
 import com.bootdo.pc.service.PageService;
@@ -25,6 +26,8 @@ public class TaiWanCommController {
     @Autowired
     private HttpServletRequest request;
     public String index(){
+        KeysDO keysDO= gwService.getKeysById(1);
+        request.setAttribute("keysDO",keysDO);
         request.setAttribute("taiwan","on");
         PageDO pageDO6= pageService.getByPageType("taiwan");
         request.setAttribute("page",pageDO6);

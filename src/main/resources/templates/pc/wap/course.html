@@ -3,9 +3,9 @@
 
 <head>
     <!--↓↓↓↓↓↓↓↓↓禁用缓存↓↓↓↓↓↓↓↓↓↓↓↓-->
-    <title th:text="${page.title}">关于玫苓</title>
-    <meta name="keywords" th:attr="content=${page.seoKeywords}" />
-    <meta name="description" th:attr="content=${page.seoDescription}" />
+    <title th:text="${page.title}+'--'+${keysDO.keys}">关于玫苓</title>
+    <meta name="keywords" th:attr="content=${page.seoKeywords}+'--'+${keysDO.keys}" />
+    <meta name="description" th:attr="content=${page.seoDescription}+'--'+${keysDO.keys}" />
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
